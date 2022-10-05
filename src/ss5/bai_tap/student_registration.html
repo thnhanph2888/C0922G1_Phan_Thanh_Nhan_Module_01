@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student registration</title>
+</head>
+<style>
+    body{
+        background-color: rgba(219, 208, 114, 0.72);
+    }
+</style>
+<body >
+<h2 style="color: #1b06d6 ; background-color: #aef19c; padding-left: 20px; padding-bottom: 5px;padding-top: 5px">ĐĂNG KÍ HỌC VIÊN</h2>
+<table>
+    <tr>
+        <td>Họ và tên</td>
+        <td><input type="text" name="yourname"/></td>
+    </tr>
+    <tr>
+        <td>Ngày sinh</td>
+        <td><input type="date" name="DateOfBirth"/></td>
+    </tr>
+    <tr>
+        <td>Giới tính</td>
+        <td><input type="radio" name="gender"> Nam
+            <input type="radio" name="gender"> Nữ</td>
+    </tr>
+    <tr>
+        <td>Địa chỉ</td>
+        <td> <input type="email"  name="address" style="width: 200px;height: 50px"/>  </td>
+    </tr>
+    <tr>
+        <td>Lớp</td>
+        <td><select>
+            <option value=".">-chọn lớp-</option>
+            <option>lớp A</option>
+            <option>lớp B</option>
+            <option>lớp C</option>
+            <option>lớp D</option>
+        </select></td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td><input type="email" name="email"></td>
+    </tr>
+    <tr>
+        <td>Điện thoại</td>
+        <td><input type="number" name="phoneNumber"> </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" name="register" value="Đăng ký">
+            <input type="submit" name="retype" value="Nhập lại"></td>
+    </tr>
+</table>
+</body>
+</html>
