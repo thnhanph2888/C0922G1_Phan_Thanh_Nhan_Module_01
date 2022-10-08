@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Body Mass Index-BMI</title>
+</head>
+<body>
+<h4>Body Mass Index-BMI</h4>
+<table>
+    <tr>
+        <td><label for="weight">Weight(kg): </label></td>
+        <td><input type="number" id="weight"></td>
+    </tr>
+    <tr>
+       <td><label for="height">Height(m): </label></td>
+        <td><input type="number" id="height"></td>
+    </tr>
+</table>
+     <button onclick="bmi()" >BMI</button>
+ <p id="Interpretation"></p>
+<script>
+    function bmi(){
+        let weight = document.getElementById("weight").value;
+        let height = document.getElementById("height").value;
+        let bmi = weight / (Math.pow(height,2)) ;
+        let result = "";
+        if (bmi < 18.5){
+           result = bmi + "Underweight";
+        } else if (bmi < 25){
+            result = bmi + "Nomal";
+        } else if (bmi < 30){
+            result = bmi + "Overweight";
+        } else {
+            result = bmi + "Obese";
+        }
+        document.getElementById("Interpretation").innerText = result;
+    }
+</script>
+</body>
+</html>
