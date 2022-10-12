@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Countdown_the_remaining_days</title>
+    <style >
+        body{
+            color: #d61b06;
+            background-color: #d2f8d0;
+        }
+    </style>
+</head>
+<body>
+<h3>Đếm ngày giáng sinh</h3>
+<p><label for="date" >Nhập ngày hôm nay</label></p>
+<input type="date" id="date">
+<button onclick="get_remaining_day()">Tính ngày</button>
+<p id=totalTime></p>
+<script>
+let toDay = document.getElementById("date").value;
+let christmasDay = new Date("2023-12-24");
+let msy = new Date("2022-12-31");
+function get_remaining_day() {
+     let ms1 = toDay.getTime();
+     let ms2 = christmasDay.getTime();
+     let result = Math.ceil((msy - ms1) + ms2 )/(24*60*60*1000);
+     document.getElementById("totalTime").innerText = result + "days";
+}
+</script>
+</body>
+</html>

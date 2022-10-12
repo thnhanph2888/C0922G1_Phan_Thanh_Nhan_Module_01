@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fibonacci</title>
+</head>
+<body>
+<script>
+    let end = 0
+    let sum = 0;
+    let n = 0
+    while (end < 7){
+        n++;
+        if (n % 7 == 0){
+            sum = sum + n;
+            end++;
+        }
+    }
+    document.write("Tổng 30 số đầu tiên chia hết cho 7 là: " + sum);
+</script>
+</body>
+</html>
