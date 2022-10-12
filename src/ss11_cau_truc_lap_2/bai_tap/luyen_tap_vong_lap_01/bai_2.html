@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Temperature</title>
+</head>
+<body>
+<script>
+    let t = +prompt("nhập nhiệt độ: ");
+    while (20 > t || t > 100){
+        if (t < 20){
+            t = +prompt("hãy tăng nhiệt độ");
+        } else if (t > 100){
+            t = + prompt("hãy giảm nhiệt độ");
+        }
+    }
+        alert("nhiệt độ thích hợp");
+</script>
+</body>
+</html>

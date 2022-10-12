@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle</title>
+</head>
+<body>
+<script>
+    let b = prompt("Nhập vào chiều dài: ");
+    let a = prompt("Nhập vào chiều rộng: ");
+    for (let i = 1; i <= a; i++) {
+        for (let j = 1; j <= b; j++) {
+            if (j == 1 || j == b) {
+                document.write("*");
+            } else if (i == 1 || i == a){
+                document.write("*");
+            } else {
+                document.write(". ")
+            }
+        }
+        document.write("<br>");
+    }
+</script>
+</body>
+</html>

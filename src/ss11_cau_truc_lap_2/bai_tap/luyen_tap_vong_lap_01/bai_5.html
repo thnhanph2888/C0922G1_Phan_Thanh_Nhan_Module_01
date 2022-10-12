@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fibonacci</title>
+</head>
+<body>
+<script>
+    let fibo0 = 0;
+    let fibo1 = 1;
+    let fibo2 = 0;
+    let end = 0;
+    let sum = 0;
+    while (end < 20){
+        fibo2 = fibo1 + fibo0;
+        fibo0 = fibo1;
+        fibo1 = fibo2;
+        sum = sum + fibo0;
+        end++
+        document.write(""+ end+ ". " + fibo0+"<br>");
+    }
+    document.write("Tổng 20 số đầu tiên trong dãy fibonacci là: "+ sum);
+</script>
+</body>
+</html>

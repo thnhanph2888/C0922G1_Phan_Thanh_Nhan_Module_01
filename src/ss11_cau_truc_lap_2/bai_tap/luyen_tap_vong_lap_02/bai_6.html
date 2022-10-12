@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Shape</title>
+    <style>
+        body {
+            color: #d61b06;
+            background: #ffe0f2;
+        }
+    </style>
+</head>
+<body>
+<script>
+    let a = 20;
+    let h = 10;
+    let i;
+    for (let i = 1; i < h; i += 2) {
+        for (let j = 0; j < a - i; j++) {
+            document.write(". ");
+        }
+        for (let j = 0; j < i * 2 + 2; j++) {
+            document.write("*");
+        }
+        for (let j = 0; j < a - i * 2 + 1; j++) {
+            document.write(". ");
+        }
+        for (let j = 0; j < i * 2 + 2; j++) {
+            document.write("*");
+        }
+        document.write("<br>");
+    }
+    for (let i = 1; i < h * 2; i += 2) {
+        for (let j = 0; j < (a / 2) + i + 2; j++) {
+            document.write(". ");
+        }
+        for (let j = 0; j < a * 2 - i * 2 +1; j++) {
+            if (i == 3 && j >= 11 ) {
+                if (j==11){
+                    document.write(" Thành Nhân ");
+                }else if (j> 21){
+                    document.write("*");
+                }
+            } else {
+                document.write("*");
+            }
+        }
+        document.write("<br>");
+    }
+
+</script>
+</body>
+</html>

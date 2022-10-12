@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number Guesing game</title>
+</head>
+<body>
+<button onclick="guessing()">chơi</button>
+<script>
+    function guessing() {
+          let count = 0;
+          let max = +prompt("bạn muốn đoán trong khoảng nào? ");
+          let random = Math.floor(Math.random() * max);
+          let guessing = +prompt("nhap lua chon cua ban: ");
+          while (guessing != random){
+              count++
+              if (count == 4){
+                  alert("bạn đã hết lượt đoán :((")
+                  break;
+              } else if (guessing > random){
+                  guessing = prompt("Đáp án nhỏ hơn bạn chọn");
+              } else if (guessing < random){
+                  guessing = prompt("Đấp án lớn hơn bạn chọn")
+              }
+          }
+          if (guessing == random) {
+              alert("Chúc mừng bạn đã đoán đúng! ^^");
+          }
+    }
+</script>
+</body>
+</html>

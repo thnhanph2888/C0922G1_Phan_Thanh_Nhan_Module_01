@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Compounding</title>
+</head>
+<body>
+<script>
+    let inital = +prompt("Nhập số tiền ban đầu: ");
+    let nInRate = +prompt("Nhập số lần lãi ghép trong tháng: ")
+    let nMonth = +prompt("Nhập số tháng cho vay: ");
+    let interestRate = +prompt("Nhập lãi hàng tháng(%): ");
+    let compounding = inital * Math.pow((1+((interestRate/100)/(12*nInRate))),((nMonth/12))*(nInRate*12)) - inital;
+    compounding = Math.ceil(compounding);
+    alert("Tổng số tiền lãi nhận được là: "+ compounding + "VNĐ");
+</script>
+</body>
+</html>

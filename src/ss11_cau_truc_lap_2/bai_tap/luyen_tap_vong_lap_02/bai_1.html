@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fibonacci sequence</title>
+</head>
+<body>
+<script>
+    let fibo0 = 0;
+    let fibo1 = 1;
+    let fibo2 = 0;
+    let count = 0;
+    while (count < 20){
+        count++
+        document.write(fibo0+ "<br>");
+        fibo2 = fibo1 + fibo0;
+        fibo0 = fibo1;
+        fibo1 = fibo2;
+    }
+</script>
+</body>
+</html>

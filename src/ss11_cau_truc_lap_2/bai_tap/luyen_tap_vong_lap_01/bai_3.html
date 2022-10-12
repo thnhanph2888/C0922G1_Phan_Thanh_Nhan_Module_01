@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Fibonacci Sequence</title>
+</head>
+<body>
+<script>
+    let fibo0 = 0;
+    let fibo1 = 1;
+    let fibo2= 0;
+    for ( let i = 0 ; i <= 10; ++i ){
+       document.write("" + fibo0 +"<br>");
+       fibo2 = fibo0 + fibo1;
+       fibo0 = fibo1;
+       fibo1 = fibo2;
+    }
+</script>
+</body>
+</html>

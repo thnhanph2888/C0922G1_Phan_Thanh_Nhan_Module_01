@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Side Of Triangle</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt("nhap a: "));
+    while (a <= 0){
+         a = parseInt(prompt("nhap a: "));
+    }
+    let b = parseInt(prompt("nhap b: "));
+    while (b <= 0){
+        b = parseInt(prompt("nhap b: "));
+    }
+    let c = parseInt(prompt("nhap c: "));
+    while (c <= 0){
+        c = parseInt(prompt("nhap c: "));
+    }
+    if (a + c > c || b + c > a || a + c > b){
+        alert("a, b, c la ba canh cua mot tam giac");
+    } else {
+        alert("a, b, c khong phai la ca cua mot tam giac");
+    }
+</script>
+</body>
+</html>
