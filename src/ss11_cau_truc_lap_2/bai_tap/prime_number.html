@@ -2,9 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Prime Number</title>
 </head>
 <body>
-$END$
+<script>
+    function check(numberr){
+        let count = 0;
+        let countUoc = 0;
+        for (let n = 2; count < numberr; n++){
+            for (let i = 1; i <= n; i++ ){
+                if(n % i == 0){
+                    countUoc ++ ;
+                }
+            }
+            if (countUoc == 2){
+                document.write("số nguyên tố là: " + n + "<br>");
+                count ++;
+            }
+            countUoc = 0
+
+        }
+    } let number = +prompt("nhập số lượng số nguyên tố cần in ra");
+    check(number)
+</script>
+
+
 </body>
 </html>

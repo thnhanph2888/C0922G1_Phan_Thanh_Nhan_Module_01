@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Name Of JavaScript</title>
 </head>
 <body>
-$END$
+<p>What is the "offical" name of JavaScript?</p>
+<input type="text" id="answer">
+<button onclick="check()">Submit</button>
+<p id="boolean"></p>
+<script>
+    function check() {
+        let answer = document.getElementById("answer").value;
+        if(answer == "ECMAScript"){
+            document.getElementById("boolean").innerText = "Right";
+        } else {
+            document.getElementById("boolean").innerText = "Didn't know! ECMAScript";
+        }
+    }
+</script>
 </body>
 </html>

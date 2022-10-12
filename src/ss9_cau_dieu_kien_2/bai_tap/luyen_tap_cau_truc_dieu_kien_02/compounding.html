@@ -2,9 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Compounding</title>
 </head>
 <body>
-$END$
+<script>
+    let iniial = parseInt(prompt("Nhap so tien ban dau: "));
+    let interestRate = parseInt(prompt("Nhap lai suat hang thang(%): "))
+    let nMonth = parseInt(prompt("So thang cho vay"));
+    let nInRate = parseInt(prompt("Nhap so lan lai ghep trong nam"))
+    let compounding = iniial * Math.pow((1+ ((interestRate/100)/nInRate)),(12*(nMonth/12))) - iniial;
+    alert("Tong so tien lai la: " + compounding);
+</script>
 </body>
 </html>

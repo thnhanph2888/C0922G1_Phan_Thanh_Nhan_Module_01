@@ -2,9 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Day Of Month</title>
 </head>
 <body>
-$END$
+<H3>Day Of Month</H3>
+<table>
+    <tr>
+        <td><input type="number" id="month"></td>
+        <td><button onclick="calculate()" id="calculate">Tính số ngày</button></td>
+    </tr>
+</table>
+<p id="result"></p>
+<script>
+    function calculate(){
+        let month = document.getElementById("month").value;
+        switch (month) {
+            case "1":
+            case "3":
+            case "5":
+            case "7":
+            case "8":
+            case "10":
+            case "12":
+                document.getElementById("result").innerText = "Tháng " + month + " có " + 31 + " ngày";
+              break;
+            case "4":
+            case "6":
+            case "9":
+            case "11":
+                document.getElementById("result").innerText = "Tháng " + month + " có " + 30 + " ngày";
+              break;
+            case "2":
+                document.getElementById("result").innerText = "Tháng " + month + " có " + 28 + " hoặc" + " ngày";
+                break;
+            default:
+                document.getElementById("result").innerText = "Vui lòng nhập lại tháng!";
+        }
+    }
+
+</script>
 </body>
 </html>

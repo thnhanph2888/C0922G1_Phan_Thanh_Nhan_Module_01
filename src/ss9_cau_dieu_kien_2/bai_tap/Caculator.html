@@ -2,9 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Caculator</title>
+    <style>
+        p{
+            margin-left: 30px;
+        }
+        td{
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 2px;
+        }
+    </style>
 </head>
 <body>
-$END$
+<p>Caculator</p>
+<table>
+    <tr>
+        <td colspan="4" ><input type="text" id="view" ></td>
+    </tr>
+    <tr>
+        <td><button onclick="InputValue(1)" >1</button></td>
+        <td><button onclick="InputValue(2)" >2</button></td>
+        <td><button onclick="InputValue(3)">3</button></td>
+        <td><button onclick="del()">AC</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="InputValue(4)" >4</button></td>
+        <td><button onclick="InputValue(5)" >5</button></td>
+        <td><button onclick="InputValue(6)">6</button></td>
+        <td><button onclick="InputValue(this.value)" value="+" >+</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="InputValue(7)" >7</button></td>
+        <td><button onclick="InputValue(8)" >8</button></td>
+        <td><button onclick="InputValue(9)" >9</button></td>
+        <td><button onclick="InputValue(this.value)" value="-" >-</button></td>
+    </tr>
+    <tr>
+        <td><button onclick="InputValue(0)" >0</button></td>
+        <td><button onclick="InputValue(this.value)" value="*" >x</button></td>
+        <td><button onclick="InputValue(this.value)" value="/" >/</button></td>
+        <td><button onclick="result()">=</button></td>
+    </tr>
+</table>
+<script>
+    let view = document.getElementById("view");
+    function InputValue(value) {
+         view.value += value;
+    }
+    function result() {
+        let result = eval(view.value);
+        view.value = result;
+    }
+    function del() {
+        view.value = "";
+    }
+</script>
 </body>
 </html>

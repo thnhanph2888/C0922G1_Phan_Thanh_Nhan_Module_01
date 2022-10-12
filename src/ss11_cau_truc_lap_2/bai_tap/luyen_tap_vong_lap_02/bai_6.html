@@ -17,13 +17,13 @@
     let i;
     for (let i = 1; i < h; i += 2) {
         for (let j = 0; j < a - i; j++) {
-            document.write(". ");
+            document.write("&nbsp&nbsp");
         }
         for (let j = 0; j < i * 2 + 2; j++) {
             document.write("*");
         }
         for (let j = 0; j < a - i * 2 + 1; j++) {
-            document.write(". ");
+            document.write("&nbsp&nbsp");
         }
         for (let j = 0; j < i * 2 + 2; j++) {
             document.write("*");
@@ -32,7 +32,7 @@
     }
     for (let i = 1; i < h * 2; i += 2) {
         for (let j = 0; j < (a / 2) + i + 2; j++) {
-            document.write(". ");
+            document.write("&nbsp&nbsp");
         }
         for (let j = 0; j < a * 2 - i * 2 +1; j++) {
             if (i == 3 && j >= 11 ) {

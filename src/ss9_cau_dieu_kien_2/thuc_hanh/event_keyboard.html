@@ -2,9 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Event Keyboard</title>
 </head>
-<body>
-$END$
+<body onload="docReady()">
+<img id="nobita" src="https://upload.wikimedia.org/wikipedia/vi/2/2c/Nobita.png"
+     style="position:absolute;left:0; top:0;" height="100" width="80"/>
+<script>
+    function upArrowPressed() {
+         let element = document.getElementById("nobita");
+         element.style.top = parseInt(element.style.top) - 15 + "px";
+     }
+     function dowmArrowPressed() {
+         let element = document.getElementById("nobita");
+         element.style.top = parseInt(element.style.top) + 15 + "px";
+     }
+     function leftArrowPressed() {
+         let element = document.getElementById("nobita");
+         element.style.left = parseInt(element.style.left) + -15 + "px";
+     }
+     function rightArrowPressed() {
+         let element = document.getElementById("nobita");
+         element.style.left = parseInt(element.style.left) + 15 + "px";
+     }
+     function moveSelection(evt) {
+         switch (evt.keyCode) {
+             case 37:
+                 leftArrowPressed();
+                 break;
+             case 39:
+                 rightArrowPressed();
+                 break;
+             case 38:
+                 upArrowPressed();
+                 break;
+             case 40:
+                 dowmArrowPressed();
+                 break;
+         }
+     }
+     function docReady() {
+         window.addEventListener("keydown",moveSelection);
+     }
+
+</script>
 </body>
 </html>

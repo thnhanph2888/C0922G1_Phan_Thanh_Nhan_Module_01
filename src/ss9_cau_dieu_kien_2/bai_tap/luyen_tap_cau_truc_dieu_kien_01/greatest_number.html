@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Greatest Number</title>
 </head>
 <body>
-$END$
+<script>
+    let a = +prompt("nhap a");
+    let b = +prompt("nhap b");
+    let c = +prompt("nhap c");
+    if (a > b && a > c){
+        alert("a la so lon nhat");
+    }else if (b > c){
+        if (a == b){
+            alert("a va b la so lon nhat");
+        }else {
+            alert("b la so lon nhat");
+        }
+    }else {
+        if (a == c){
+            alert("a va c la so lon nhat")
+        } else {
+            alert("c la so lon nhat");
+        }
+    }
+</script>
 </body>
 </html>

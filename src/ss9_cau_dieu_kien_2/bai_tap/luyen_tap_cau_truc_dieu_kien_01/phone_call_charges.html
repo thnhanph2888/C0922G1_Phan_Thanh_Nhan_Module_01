@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Phone Call Charges</title>
 </head>
 <body>
-$END$
+<script>
+    let registrationFee = +prompt("nhap phi thue bao: ");
+    let first50 = +prompt("nhap so tien cho 50 phut goi dau tien");
+    let next150 = +prompt("nhap so tien cho 150 phut tiep theo");
+    let next200 = +prompt("nhap so tien cho 200 phut tiep theo");
+    let totalMinutes = +prompt("nhap tong so phut da su dung");
+    let totalMonney;
+    if (totalMinutes < 50){
+        totalMonney = totalMinutes * first50 + registrationFee;
+    } else if (totalMinutes <= 150){
+        totalMonney = (totalMinutes - 50)*next150 + (50*first50) + registrationFee;
+    } else if (totalMinutes > 200){
+        totalMonney = (totalMinutes - 200)*next200 + (150*next150) + (50*first50) + registrationFee;
+    }
+    alert("cuoi phi cua ho gia dinh la: "+ totalMonney);
+</script>
 </body>
 </html>

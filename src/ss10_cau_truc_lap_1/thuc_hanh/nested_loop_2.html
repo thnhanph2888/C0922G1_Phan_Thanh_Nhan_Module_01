@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Nested loop 2</title>
 </head>
 <body>
-$END$
+<script>
+    let m, n, soutt;
+    m = n = 1;
+    soutt = "<table ' border = '1' width ='200' cellspacing = '0' cellpadding='5'>"
+    while (m <= 10){
+        soutt = soutt + "<tr>";
+        while (n <=10){
+            soutt = soutt + "<td>" + m + n + "</td>";
+        }
+        soutt = soutt + "</tr>";
+        j = 1;
+        m++;
+    }
+    soutt = soutt + "</table>";
+    document.write(soutt);
+</script>
 </body>
 </html>

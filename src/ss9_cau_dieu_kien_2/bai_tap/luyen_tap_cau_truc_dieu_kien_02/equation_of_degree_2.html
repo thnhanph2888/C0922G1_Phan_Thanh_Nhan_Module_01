@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Equation Of Degree 2</title>
 </head>
 <body>
-$END$
+<script>
+    let a = +prompt("nhap a");
+    let c = +prompt("nhap c");
+    let p = a*c;
+    if (p > 0){
+        alert("phuong trinh vo nghiem");
+    } else if (p < 0){
+       let x1 = Math.sqrt(-c/a);
+       let x2 = -Math.sqrt(-c/a);
+       alert("phuong trinh co hai nghiem la: "+ x1 +" và "+ x2);
+
+    }
+</script>
 </body>
 </html>

@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Student Rating</title>
 </head>
 <body>
-$END$
+<script>
+    let testMarks = +prompt("nhap diem kiem tra");
+    let midtermExamScore = +prompt("nhap diem thi giua ki");
+    let finalExamScore = +prompt("nhap diem kiem tra cuoi ki");
+    let tolal = ((testMarks + (midtermExamScore * 2) + (finalExamScore * 3))/6);
+    if (tolal > 8){
+        alert(""+tolal)
+        alert("xep loai gioi");
+    }else if (tolal > 6){
+        alert("xep loai kha");
+    }else if (tolal > 4){
+        alert("xep loai trung binh");
+    }else {
+        alert("xep loai yeu");
+    }
+</script>
 </body>
 </html>

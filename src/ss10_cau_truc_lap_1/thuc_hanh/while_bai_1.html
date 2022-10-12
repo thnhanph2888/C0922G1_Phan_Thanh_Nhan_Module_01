@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Total</title>
 </head>
 <body>
-$END$
+<h3>Total</h3>
+<p id="number">number</p>
+<p id="total">total</p>
+<script>
+    var a = parseInt(prompt("nhap mot so"));
+    var total = 0;
+    while (a != -1){
+       var a = parseInt(prompt("nhap mot so"));
+        document.getElementById("number").innerText = a + "";
+        total += a;
+        document.getElementById("total").innerText = "Total: " + total ;
+    }
+</script>
 </body>
 </html>

@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Personal Income Tax</title>
 </head>
 <body>
-$END$
+<script>
+    let income = parseInt(prompt("nhap thu nhap cua ban thang nay(trđ): "));
+    let tax;
+    if (income <= 5){
+       tax = income * 5 /100 ;
+    } else if (income <= 10){
+        tax = income * 10 /100 + 0.25;
+    }else if (income <= 18){
+        tax = income * 15 /100 + 0.75;
+    }else if (income <= 32){
+        tax = income * 20 /100 + 1.95;
+    }else if (income <= 52){
+        tax = income * 25 /100 + 4.75;
+    }else if (income <= 80){
+        tax = income * 30 /100 + 9.75;
+    }else {
+        tax = income * 35 /100 + 18.15;
+    }
+    alert("so thue phai nop la: " + tax);
+</script>
 </body>
 </html>

@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Multiplication_table</title>
+    <style>
+        td{
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-$END$
+<script>
+    sout = "<table border='1' style='border-collapse: collapse' >";
+    for (i = 1; i < 10; i++){
+        sout = sout + "<tr>";
+        for (j = 2; j < 10; j++){
+            sout += "<td>" + j + " x " + i + " = " + j*i + "</td>";
+        }
+        sout = sout + "</tr>";
+    }
+    sout = sout + "</table>"
+    document.write(sout);
+</script>
 </body>
 </html>

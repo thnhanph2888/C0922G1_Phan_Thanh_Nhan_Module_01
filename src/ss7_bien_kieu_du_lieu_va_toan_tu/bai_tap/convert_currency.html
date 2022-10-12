@@ -2,9 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Convert Currency</title>
+    <style>
+        td {
+           padding-right: 30px;
+        }
+    </style>
 </head>
 <body>
-$END$
+<table>
+    <tr>
+        <td>Amount</td>
+        <td>From Currency</td>
+        <td>To Currency</td>
+    </tr>
+    <tr>
+        <td><input type="text" id="amount"></td>
+        <td>
+            <select id="from">
+                <option value="VietNam">VietNam</option>
+                <option value="USD">USD</option>
+            </select>
+        </td>
+        <td>
+            <select id="to">
+              <option value="VietNam">VietNam</option>
+              <option value="USD">USD</option>
+            </select>
+        </td>
+        <td>
+            <button onclick="cood();" >Convert </button>
+        </td>
+    </tr>
+</table>
+<p id="resultt"></p>
+<script src="convert_currency.js"></script>
 </body>
 </html>
