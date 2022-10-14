@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Convert Lowercase To Uppercase</title>
+</head>
+<body>
+<script>
+    let a = prompt("Nhap vao mot chuoi: ");
+    var UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var LOWER = 'abcdefghijklmnopqrstuvwxyz';
+    a.toString();
+    var result = [];
+    for (let x = 0;  x <= a.length; x++){
+        if (UPPER.indexOf(a[x]) !== -1){
+            result.push(a[x].toLowerCase());
+        } else if (LOWER.indexOf(a[x]) !== -1){
+            result.push(a[x].toUpperCase());
+        } else {
+            result.push(a[x]);
+        }
+    }
+    document.write(result.join(""));
+</script>
+</body>
+</html>

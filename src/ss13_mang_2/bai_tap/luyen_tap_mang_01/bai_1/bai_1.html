@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check Array</title>
+</head>
+<body>
+<script>
+    let result = "";
+    let result2 = 0;
+    let nums = [1,25,-23,4,10,432,2,6,22,12];
+    for (let i = 0; i < nums.length; i++){
+        if (nums[i] >= 10 ){
+            result2++;
+            result+= nums[i] + "\n";
+        }
+    }
+    document.write("Có "+result2+" số nguyên lớn hơn hoặc bằng 10 là: \n"+ result);
+
+</script>
+</body>
+</html>

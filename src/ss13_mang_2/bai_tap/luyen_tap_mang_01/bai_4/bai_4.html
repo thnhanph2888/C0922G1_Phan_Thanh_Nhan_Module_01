@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reverse Element Of Array</title>
+</head>
+<body>
+
+<script>
+   let nums = [];
+   let index = 0;
+   while (index< 5){
+       let num = prompt("Nhap vao mang so nguyen");
+       nums[index] = num;
+       index++;
+   }
+    let first = 0;
+    let last = nums.length - 1;
+    let vr;
+    while (first < last) {
+        vr = nums[first];
+        console.log(nums[first])
+        console.log(nums[last])
+        nums[first] = nums[last];
+        nums[last] = vr;
+        first++;
+        last--;
+    }
+    document.write(nums.join(", "));
+</script>
+</body>
+</html>

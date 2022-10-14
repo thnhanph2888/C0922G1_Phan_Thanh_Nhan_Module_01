@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Greatest Value</title>
+</head>
+<body>
+<script>
+    let max = 0;
+    let nums = [1,25,-23,4,10,432,2,6,22,12];
+    let i;
+    for (i = 0; i < nums.length; i++){
+        if (max < nums[i]){
+            max = nums[i];
+        }
+    }
+    document.write("Giá trị lớn nhất là max: "+max +" có vị trí: "+i);
+</script>
+</body>
+</html>

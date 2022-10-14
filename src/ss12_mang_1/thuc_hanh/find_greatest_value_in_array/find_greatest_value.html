@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Greatest Value</title>
+</head>
+<body>
+<script>
+    let array = [1,2,4,5,6,7,33,54,243,453,976];
+    let max = array[0];
+    let index;
+    for (let i = 0; i < array.length; i++){
+        if (max < array[i]){
+            max = array[i];
+            index = i;
+        }
+    }
+    document.write("Max is: " + max + " at positon " + index +".");
+</script>
+</body>
+</html>

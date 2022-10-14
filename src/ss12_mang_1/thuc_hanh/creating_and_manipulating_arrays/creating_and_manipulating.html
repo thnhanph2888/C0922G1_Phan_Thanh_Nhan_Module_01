@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Creating and manipulating arrays</title>
+    <style>
+        body{
+            margin-left: 5%;
+            color: #d61b06;
+            background: #d1f5c0;
+        }
+        button{
+            color: #f8f8f8;
+            background: #1f5a00;b
+        }
+    </style>
+</head>
+<body>
+<h3>Sample Screen</h3>
+<input type="text" id="elementt">
+<button onclick="add()" >Add</button>
+<button onclick="display()" >Display</button>
+<p id="hr"></p>
+<div id="array"> </div>
+<script>
+    let nums = new Array();
+    let x = 0;
+    function add() {
+        let element = document.getElementById("elementt").value;
+        nums[x] = element;
+        alert("element: "+ element + " added at index " + x + "!");
+        x++;
+        document.getElementById("elementt").value = "";
+    }
+    function display() {
+        document.getElementById("hr").innerHTML = "<hr>"
+        document.getElementById("array").innerHTML = nums;
+    }
+</script>
+</body>
+</html>

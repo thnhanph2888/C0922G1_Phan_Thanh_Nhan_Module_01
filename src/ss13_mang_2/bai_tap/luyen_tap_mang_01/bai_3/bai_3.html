@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Greatest And Average</title>
+</head>
+<body>
+<script>
+    nums = [1,25,-23,4,10,432,2,6,22,12];
+    let average = 0;
+    let sum = 0;
+    let max = nums[0];
+    let i;
+    for (i = 0; i < nums.length; i++){
+        if (max < nums[i]){
+            max = nums[i];
+        }
+        sum += parseInt(nums[i]);
+    }
+    average = sum / nums.length;
+    document.write("Gia tri lon nhat la: "+ max +" <br>" + "Gia tri trung binh cua cac phan tu trong mang la: " + average);
+</script>
+</body>
+</html>

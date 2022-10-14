@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dictionary</title>
+</head>
+<body>
+<h3>Dictionary</h3>
+<label for="input"><p>Nhap vao tieng viet</p></label>
+<input type="text" id="input">
+<button onclick="seach()">Tim kiem</button>
+<p id="result"> </p>
+<script>
+    let vietnamese = ["xóa", "sửa", "xin chào", "bắt đầu","hoàn thành"];
+    let english = ["delete","edit","hello","start","finish"];
+    let input = "";
+    let i = 0;
+    function seach() {
+        input = document.getElementById("input").value;
+
+        for (i = 0; i < vietnamese.length;i++){
+            console.log("input: "+input);
+            console.log("vietnamese[i]: "+vietnamese[i]);
+            if (input === vietnamese[i]){
+                document.getElementById("result").innerHTML = "<hr> Bản dịch là: " + english[i].toString();
+                break;
+            }else {
+                document.getElementById("result").innerHTML = "<hr> Khong tim thay ket qua";
+            }
+        }
+    }
+</script>
+</body>
+</html>

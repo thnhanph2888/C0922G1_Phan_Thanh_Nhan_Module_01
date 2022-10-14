@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reverse The Elements In The Array</title>
+    <style>
+        body{
+            margin-left: 5%;
+            color: #d61b06;
+            background: #d1f5c0;
+        }
+        button{
+            color: #f8f8f8;
+            background: #1f5a00;
+        }
+    </style>
+</head>
+<body>
+<h3>Reverse</h3>
+<input type="text" id="element">
+<button onclick="add()">add</button>
+<button onclick="reverse()" >reverse</button>
+<div id="result"> </div>
+<script>
+    let index = 0;
+    let array = [];
+    function add() {
+        let element = document.getElementById("element").value;
+         array[index] = element;
+         document.getElementById("element").value = "";
+         document.getElementById("result").innerHTML = array;
+        index++;
+    }
+    function reverse() {
+        let first = 0;
+        let last = array.length -  1;
+        while(first < last){
+            let b = array[first];
+            array[first] = array[last];
+            array[last] = b;
+            first++;
+            last--;
+            document.getElementById("result").innerHTML = array;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete V</title>
+</head>
+<body>
+<script>
+    let arrays = [];
+    count = 0;
+    let a;
+    while (count < 10) {
+        a = prompt("Them phan tu moi vao mang");
+        arrays[count] = a;
+        count++;
+    }
+    let trueFalse = false;
+    for (let i = 0; i < arrays.length; i++) {
+        if (arrays[i].toString() === "V") {
+            arrays[i] = arrays[i + 1];
+            arrays[arrays.length - 1] = 0;
+            trueFalse = true;
+            break;
+        } else {
+          trueFalse = false;
+        }
+    }
+    if (trueFalse === false){
+        document.write("V is not in the array <br>")
+        document.write(arrays);
+    } else {
+        document.write("removed V from the array <br>"+arrays);
+    }
+</script>
+</body>
+</html>

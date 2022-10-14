@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sort Descending</title>
+</head>
+<body>
+<script>
+    let arrayNums = [];
+    let count = 0;
+    let a = "";
+    while (count < 10){
+        a = prompt("Them phan tu moi vao mang: ")
+        if (a === ""){
+            a = prompt("Them phan tu moi vao mang: ")
+        } else {
+            arrayNums[count] = a;
+            count++;
+        }
+    }
+    for (let i = 0; i < arrayNums.length - 1; i++){
+        for (let j = i + 1; j < arrayNums.length ; j++){
+            if ( +arrayNums[i] > +arrayNums[j]){
+              let cont = arrayNums[i];
+                arrayNums[i] = arrayNums[j];
+                arrayNums[j] = cont;
+            }
+        }
+    }
+    document.write(arrayNums.join(", "));
+</script>
+</body>
+</html>

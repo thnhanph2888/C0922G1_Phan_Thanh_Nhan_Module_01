@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find V</title>
+</head>
+<body>
+<script>
+    let arrayN = [];
+    let count = 0;
+    while (count < 10) {
+        arrayN[count] = prompt("Them phan tu moi vao mang: ");
+        count++;
+    }
+    let trueFalse = false;
+    for (let i = 0; i < arrayN.length; i++) {
+        if (arrayN[i].toString() == "V") {
+            trueFalse = true;
+            break;
+        } else {
+            trueFalse = false;
+        }
+    }
+    if (trueFalse === true) {
+        document.write("V is  in the array <br>");
+        document.write(arrayN);
+    } else {
+        document.write("V is not in the array <br>");
+        document.write(arrayN);
+    }
+</script>
+</body>
+</html>
