@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Count Characters</title>
+</head>
+<body>
+<script>
+   function countChar(arrays, charr) {
+       let count = 0;
+        for (let i = 0; i < arrays.length;i++){
+            if (arrays[i] == charr){
+                count++;
+            }
+        }
+        if (count == 0){
+            document.write("Ki tu "+ char +" khong co trong mang");
+        } else {
+            document.write("Ki tu "+ char +" xuat hien " +count +" lan trong mang" );
+        }
+   }
+   let arrayss = [];
+   for (let j = 0; j < 5; j++){
+       arrayss[j] = prompt("Them ki tu moi vao mang: ");
+   }
+   let char = prompt("Nhap ki tu can kiem tra: ");
+   countChar(arrayss, char);
+</script>
+</body>
+</html>

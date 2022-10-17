@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Constellation Of Star </title>
+</head>
+<body>
+<script>
+    let star = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe","Regulus"];
+    let constellation = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+    function checkStar(starr) {
+        for (let i = 0; i < star.length; i++){
+             if(starr == star[i]){
+                 document.write(constellation[i]);
+             }
+        }
+    }
+    let a = prompt("Nhap vao ngoi sao");
+    checkStar(a);
+
+</script>
+</body>
+</html>

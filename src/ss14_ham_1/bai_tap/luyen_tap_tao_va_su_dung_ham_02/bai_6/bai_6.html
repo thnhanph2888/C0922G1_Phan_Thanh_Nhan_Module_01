@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check Number</title>
+</head>
+<body>
+<script>
+    function checkNumber(nums) {
+        let isInteger = false;
+         if (nums > 0 && nums % 1 == 0 ){
+             isInteger = true;
+         } else {
+             isInteger = false;
+         }
+        document.write(isInteger + "");
+    }
+    let a = +prompt("Nhap vao so muon kiem tra: ")
+    checkNumber(a);
+</script>
+</body>
+</html>

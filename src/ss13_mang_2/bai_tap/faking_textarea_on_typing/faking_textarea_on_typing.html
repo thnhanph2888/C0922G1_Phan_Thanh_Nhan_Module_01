@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faking Textarea On Typing</title>
+    <style>
+        body{
+            margin-left: 5%;
+        }
+    </style>
+</head>
+<body>
+<h3>Type anthing slowly</h3>
+<textarea onkeydown="changeValue()" id="text" rows="5" cols="30"></textarea>
+<script>
+    let arrays = ["C", "h", "ạ", "y", " ", "t", "h", "à", "n", "h", " ", "c", "ô", "n", "g", "!"];
+    let n = "";
+
+    function changeValue() {
+        let a = document.getElementById("text").value;
+        let i = a.length;
+
+        if (i > 0) {
+            for (let j = 0; j < i; j++) {
+                n = n + arrays[j];
+                if (j == 16) {
+                    n = "";
+                    document.getElementById("text").value = "";
+                }
+            }
+        }
+        document.getElementById("text").value = n;
+        n = "";
+        setTimeout("changeValue()", 1);
+    }
+</script>
+</body>
+</html>

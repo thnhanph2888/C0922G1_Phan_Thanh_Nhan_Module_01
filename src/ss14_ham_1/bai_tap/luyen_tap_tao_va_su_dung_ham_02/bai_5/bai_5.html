@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smallest Value</title>
+</head>
+<body>
+<script>
+
+    function checkValue(num1,num2,num3) {
+        let min = 0;
+         if (num1 < num2 && num1 < num3){
+            min = num1;
+         } else if (num2 < num3){
+             min = num2;
+         }
+         return min;
+    }
+    let a = +prompt("Nhap vao so thu nhat");
+    let b = +prompt("Nhap vao so thu hai");
+    let c = +prompt("Nhap vao so thu ba");
+    let result = checkValue(a,b,c);
+    document.write("Gia tri nho nhat la: "+ result);
+</script>
+</body>
+</html>

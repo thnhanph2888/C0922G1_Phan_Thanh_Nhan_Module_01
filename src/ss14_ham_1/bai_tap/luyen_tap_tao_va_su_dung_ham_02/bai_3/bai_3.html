@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Factorial</title>
+</head>
+<body>
+<script>
+    let result = 1;
+    function cacurlate(nums) {
+        if (nums == 0){
+            result = 1;
+        }
+        for (let i = 1; i <= nums; i++){
+               result = result * i ;
+
+        }
+        document.write(nums+"! = "+ result);
+    }
+    let a = +prompt("Nhap so nguyen bat ki");
+    cacurlate(a);
+</script>
+</body>
+</html>

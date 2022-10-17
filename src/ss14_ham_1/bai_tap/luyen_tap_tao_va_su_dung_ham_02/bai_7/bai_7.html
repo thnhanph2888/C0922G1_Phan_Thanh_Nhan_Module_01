@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Change Places</title>
+</head>
+<body>
+<script>
+    function changePlaces(num1, num2) {
+         let cont = num1;
+         num1 = num2;
+         num2 = cont;
+         document.write("So nguyen thu nhat la: "+num1 +"<br>" +"So nguyen thu hai la: "+ num2);
+    }
+    let a = +prompt("Nhap vao so nguyen thu nhat");
+    let b = +prompt("Nhap vao so nguyen thu hai");
+    changePlaces(a,b);
+</script>
+</body>
+</html>

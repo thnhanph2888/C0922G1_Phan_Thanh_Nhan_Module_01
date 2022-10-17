@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Print Element Of Array</title>
+</head>
+<body>
+<script>
+    let i;
+    let arrays = [];
+    for (i = 0; i < 5; i++){
+        arrays[i] = [Math.ceil(Math.random()*20),Math.ceil(Math.random()*20),Math.ceil(Math.random()*20),Math.ceil(Math.random()*20)];
+    }
+    for (i in arrays){
+        document.write("Row " + i + ": <br>");
+        for (let j in arrays[i]){
+            document.write(arrays[i][j]+"<br>");
+        }
+    }
+</script>
+</body>
+</html>

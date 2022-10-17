@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Replace  Characters</title>
+</head>
+<body>
+<script>
+    let a = [];
+    for (let  i = 0; i < 5; i++){
+        a[i] = prompt("Them ki tu vao mang")
+    }
+    let flag = 0;
+    for (let i = 0; i < a.length; i++){
+        if (a[i] == "-"){
+            a[i] = "_";
+            flag++
+        }
+    }
+    document.write(a +"\n"+ flag);
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Smallest Value Of Array</title>
+</head>
+<body>
+<script>
+    let arr1 = [3, 5, 1, 8, -3, 7, 8]
+
+    let arr2 = [7, 12, 6, 9, 20, 56, 89]
+
+    let arr3 = []
+
+    let arr4 = [0, 0, 0, 0, 0, 0]
+    function findValue(arrays, nums) {
+        let i;
+        let min = arrays[0];
+        let positionMin = 0;
+        if (arrays.length == 0){
+            positionMin = -1;
+        }
+        for (i = 0; i < arrays.length; i++){
+            if (arrays[i] < min){
+                min = arrays[i];
+                positionMin = i;
+            }
+        }
+        alert(positionMin + " la vi tri cua gia tri nho nhat trong mang " + nums  )
+    }
+    findValue(arr1,1);
+    findValue(arr2,2);
+    findValue(arr3,3);
+    findValue(arr4,4);
+
+</script>
+</body>
+</html>

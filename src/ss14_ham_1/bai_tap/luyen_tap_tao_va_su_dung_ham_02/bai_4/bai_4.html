@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check Characters</title>
+</head>
+<body>
+<script>
+    let trueFalse = false;
+    function checkCharacter(charr) {
+        if (charr >= "0" && charr <="9"){
+            console.log(trueFalse)
+            trueFalse = true;
+        }else {
+            trueFalse = false;
+        }
+    }
+    let a = prompt("Nhap vao 1 ki tu");
+    checkCharacter(a);
+    alert(trueFalse);
+</script>
+</body>
+</html>
