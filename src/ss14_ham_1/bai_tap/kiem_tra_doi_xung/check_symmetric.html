@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check Symmetric</title>
+</head>
+<body>
+<script>
+    function isPalindrome() {
+         let isTrue = false;
+         first = 0;
+         last = a.length - 1;
+
+         if (a[first] === a[last]){
+             first++;
+             last--;
+             while (first < last){
+                 console.log(a[first])
+                 console.log(a[last])
+                 if (a[first] === a[last]){
+                     isTrue = true;
+                 }else {
+                     isTrue = false;
+                 }
+                 first++;
+                 last--;
+             }
+         }
+         return isTrue;
+    }
+    let a = prompt("Nhập vào một từ: ");
+    if (isPalindrome()){
+        alert("Đây không phải chuỗi palindrome");
+    }else {
+        alert("Đây là chuỗi palindrome");
+    }
+</script>
+</body>
+</html>

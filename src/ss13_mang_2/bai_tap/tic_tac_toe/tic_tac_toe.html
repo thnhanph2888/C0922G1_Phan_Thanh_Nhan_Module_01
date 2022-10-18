@@ -7,12 +7,16 @@
         body {
             margin-left: 40px;
         }
+
         p {
             margin-left: 10px;
         }
-        button {
-            margin-left: 10px;
+        button{
+            background: #fcfcfc;
+            height: 27px;
+            color: #891100;
         }
+
     </style>
 </head>
 <body>
@@ -24,57 +28,112 @@
     let i;
     let j;
     let data = "";
-    let aI = "";
-    let aJ = "";
+    let winO = false;
+    let winX = false;
+    let player1 = false;
 
-    let player1 = true;
-
-    for (i = 0; i < 5; i++) {
-        board[i] = new Array(".", ".", ".", ".", ".");
+    for (i = 0; i < 8; i++) {
+        board[i] = new Array(". .",". .", ". .", ". .", ". .", ". .",". .", ". .");
     }
-    for (i = 0; i < 5; i++) {
-        for (let j = 0; j < 5; j++) {
-            data += board[i][j] + "&nbsp&nbsp";
+
+    function table() {
+        data += "<table>";
+        for (i = 0; i < 8; i++) {
+            data += "<tr>"
+            for (j = 0; j < 8; j++) {
+                data += "<td><button id='" + "button" + i + j + "' onclick='play(this.value)' value='" + i + j + "'>" + board[i][j] + "</button></td>";
+            }
+            data += "</tr>"
         }
-        data += "<br>"
+        data += "</table>"
+        document.getElementById("table").innerHTML = ("" + data);
     }
-    document.getElementById("table").innerHTML = ("" + data);
 
-    function play() {
-        let count1 = 0;
-        let count2 = 0;
-            data = "";
-            if (player1) {
-                alert("Đến lượt chơi người thứ 1. Cờ của bạn là O: ");
-            } else {
-                alert("Đến lượt chơi người thứ 2. Cờ của bạn là X: ");
-            }
-            aI = prompt("Nhập X: ");
-            aJ = prompt("Nhập Y: ");
-            if (player1) {
-                board[aI - 1][aJ - 1] = "O";
-                player1 = false;
-            } else {
-                board[aI - 1][aJ - 1] = "X";
-                player1 = true;
-            }
-            for (i = 0; i < 5; i++) {
-                for (j = 0; j < 5; j++) {
-                    data += board[i][j] + "&nbsp&nbsp";
+    table();
+
+    function play(position) {
+        if (player1) {
+            board[position[0]][position[1]] = "O";
+            document.getElementById("button" + position).innerHTML = "O";
+            player1 = false;
+        } else {
+            board[position[0]][position[1]] = "X";
+            document.getElementById("button" + position).innerHTML = "X";
+            player1 = true;
+        }
+        for (i = 0; i < 4; i++) {
+            for (j = 0; j < 4; j++) {
+                if (board[i][j] === "O" && board[i][j + 1] === "O" && board[i][j + 2] === "O" && board[i][j + 3] === "O") {
+                    console.log(winO);
+                    winO = true;
                 }
-                data += "<br>"
+                if (board[i][j] === "X" && board[i][j + 1] === "X" && board[i][j + 2] === "X" && board[i][j + 3] === "X") {
+                    winX = true;
+                }
             }
-            document.getElementById("table").innerHTML = ("" + data);
+        }
+        for (i = 0; i < 4; i++) {
+            for (j = 0; j < 4; j++) {
+                if (board[i][j] === "O" && board[i][j + 1] === "O" && board[i][j + 2] === "O" && board[i][j + 3] === "O") {
+                    console.log(winO);
+                    winO = true;
+                }
+                if (board[i][j] === "X" && board[i][j + 1] === "X" && board[i][j + 2] === "X" && board[i][j + 3] === "X") {
+                    winX = true;
+                }
+            }
+        }
+        for (i = 0; i < 5; i++) {
+            for (j = 0; j < 5; j++) {
+                if (board[i][j] === "O" && board[i+1][j+1] === "O" && board[i+2][j+2] === "O" && board[i+3][j+3] === "O") {
+                    winO = true;
+                }
+                if (board[i][j] === "X" && board[i+1][j+1] === "X" && board[i+2][j+2] === "X" && board[i+3][j+3] === "X") {
+                    winX = true;
+                }
+            }
+        }
+        for (i = 3; i < 8; i++) {
+            for (j = 0; j < 5; j++) {
+                if (board[i][j] === "O" && board[i-1][j+1] === "O" && board[i-2][j+2] === "O" && board[i-3][j+3] === "O") {
+                    winO = true;
+                }
+                if (board[i][j] === "X" && board[i-1][j+1] === "X" && board[i-2][j+2] === "X" && board[i-3][j+3] === "X") {
+                    winX = true;
+                }
+            }
+        }
 
-            //under construction
-            if (count1 === 3) {
-                alert("người chơi 1 chiến thắng");
-                data = "";
+        for (j = 0; j < 4; j++) {
+            for (i = 0; i < 4; i++) {
+                if (board[i][j] === "O" && board[i + 1][j] === "O" && board[i + 2][j] === "O" && board[i + 3][j] === "O") {
+                    winO = true;
+                }
+                if (board[i][j] === "X" && board[i + 1][j] === "X" && board[i + 2][j] === "X" && board[i + 3][j] === "X") {
+                    winX = true;
+                }
             }
-            if (count2 === 3){
-                alert("người chơi 2 chiến thắng");
-                data = "";
+        }
+        if (winO === true) {
+            alert("Nguoi choi 0 chien thang");
+            for (i = 0; i < 8; i++) {
+                for (j = 0; j < 8; j++) {
+                    board[i][j] = ". .";
+                    document.getElementById("button" + i + j).innerHTML = ". .";
+                }
             }
+            winO = false;
+        }
+        if (winX === true) {
+            alert("Nguoi choi X chien thang");
+            for (i = 0; i < 8; i++) {
+                for (j = 0; j < 8; j++) {
+                    board[i][j] = ". .";
+                    document.getElementById("button" + i + j).innerHTML = ". .";
+                }
+            }
+            winX = false;
+        }
     }
 </script>
 </body>

@@ -4,22 +4,74 @@
     <meta charset="UTF-8">
     <title>Product Management</title>
     <style>
-        td{
+        tr{
+           padding-bottom: 2px;
+        }
+        body{
+            margin-left: 5%;
+            background: #85c67b;
+            color: #071a00;
+        }
+        td {
+            border-radius: 4px;
+            background: #e0e0e0;
             padding-left: 20px;
-            padding-bottom: 20px;
+            padding-right: 10px;
+            padding-bottom: 5px;
+        }
+        button{
+            background: #2b7602;
+            color: #e0e0e0;
         }
     </style>
 </head>
 <body>
-<h3>Add New Product</h3>
+<h4>Add New Product</h4>
 <input type="text" id="newproduct">
-<button>Add</button>
-<h3>Display All Product</h3>
+<button onclick="add()">Add</button>
+<h4>Display All Product</h4>
+<input type="text" id="edit">
+<button onclick="submit()">Summit</button>
+
+<p id="table"></p>
 <script>
-    let nameProduct = ["Sony", "Samsung Galaxy", "Nokia 6", "Xiaomi Redmi Note 4", "Iphone 6", "Oppo A7"];
+    let nameProducts = ["Sony", "Samsung Galaxy", "Nokia 6", "Xiaomi Redmi Note 4", "Iphone 6", "Oppo A7"];
     let i;
-    for (i = 0; i < nameProduct.length; i++){
-        document.write();
+    let data = "";
+    let positionEdit = 0;
+    function createTable(array) {
+        data = data + "<table>"
+        for (i = 0; i < array.length; i++) {
+            data += "<tr>" + "<td><p>" + (i + 1) + ".</p></td>" + "<td id='name"+i+"'>" + array[i] + "</td>" + "<td><button value='"+i+"' onclick='editProduct(this.value)'>edit</button></td> " +
+                "<td><button value='"+i+"' onclick='deleteProduct(this.value)'>delete</button></td>"
+        }
+        data += "</table>"
+        document.getElementById("table").innerHTML = data;
+    }
+
+    createTable(nameProducts)
+
+    function add() {
+        data = "";
+        let a = document.getElementById("newproduct").value;
+        nameProducts.push(a);
+        createTable(nameProducts);
+        alert(a + " da duoc them vao danh sach san pham");
+    }
+    function editProduct(position) {
+        positionEdit = position;
+        document.getElementById("edit").innerText = ""
+        console.log(position)
+        document.getElementById("edit").value = nameProducts[position];
+    }
+    function submit() {
+         nameProducts[positionEdit] = document.getElementById("edit").value;
+         document.getElementById("name" + positionEdit).innerHTML = document.getElementById("edit").value;
+    }
+    function deleteProduct(position){
+         data = ""
+         nameProducts.splice(position, 1)
+         createTable(nameProducts);
     }
 </script>
 </body>
