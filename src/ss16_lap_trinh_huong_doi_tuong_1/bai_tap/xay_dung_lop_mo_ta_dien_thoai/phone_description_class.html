@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phone Description Class</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td></td>
+    </tr>
+</table>
+<script>
+    let count;
+    class Phone {
+
+        constructor(on, battery, messageSent) {
+            this.battery = battery;
+            this.messageTyping = [];
+            this.messageInbox = [];
+            this.messageSent = [];
+            this.on = on;
+        }
+
+        setOnOff(on) {
+            this.battery--
+            this.on = on;
+        }
+
+        chargeBattery() {
+            for (let i = 0; i <= 100; i++) {
+                this.battery++;
+            }
+        }
+
+        typing(id) {
+            this.battery--
+            let a = document.getElementById(id).value;
+            this.messageTyping.push(a);
+        }
+
+        sentMessage(id1,object) {
+            let mess = document.getElementById(id1).value;
+            this.messageSent[count] = mess;
+            count++;
+        }
+    }
+</script>
+</body>
+</html>
