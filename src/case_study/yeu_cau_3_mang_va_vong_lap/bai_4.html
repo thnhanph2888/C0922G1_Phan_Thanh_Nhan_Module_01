@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number To Text</title>
+</head>
+<body>
+<script>
+    let numbers = [0,1,2,3,4,5];
+    let count = 0;
+    let texts = ["không", "một", "hai", "ba", "bốn", "năm"];
+    let a = prompt("Nhap vao mot so: ").toString();
+    let i, j, result = [];
+    for (i = 0; i < a.length; i++){
+        for (j = 0; j < numbers.length; j++){
+            if (+a[i] === numbers[j]){
+                result[count]= texts[j];
+                count++;
+                console.log(a)
+            }
+        }
+    }
+    document.write(result.join(" "));
+</script>
+</body>
+</html>

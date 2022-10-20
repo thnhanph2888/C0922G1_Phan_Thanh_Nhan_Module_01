@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class Describes A Rectangle</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="300"></canvas>
+<p id="area"></p>
+<p id="perimeter"></p>
+<script>
+    class Retangle {
+        constructor(width, height) {
+            this.width = width;
+            this.height = height;
+        }
+        getWidth(){
+            return this.width;
+        }
+        getHeight(){
+            return this.height;
+        }
+        setWidth(width){
+            this.width = width;
+        }
+        setHeight(height){
+            this.height = height;
+        }
+        getArea() {
+            return this.height * this.width;
+        }
+
+        getPerimeter() {
+            return (this.height + this.width) * 2;
+        }
+        getRandomHex(){
+            return Math.random() * 255;
+        }
+        getRandomColor(){
+            let red = this.getRandomHex();
+            let green = this.getRandomHex();
+            let blue = this.getRandomHex();
+            return "rgb(" + red + "," + green + "," + blue + ")";
+        }
+
+        createRectangle(x, y) {
+            let color = this.getRandomColor();
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.beginPath();
+            ctx.rect(20, 20,this.getWidth(),this.getHeight());
+            ctx.fillStyle = color;
+            ctx.fill();
+        }
+    }
+    let rect = new Retangle(60,300);
+    let width = rect.getWidth();
+    let height = rect.getHeight();
+    rect.createRectangle(20,20);
+    rect.setWidth(400);
+    rect.setHeight(250);
+    document.getElementById("area").innerHTML = "Dien tich hinh chu nhat la: " +rect.getArea()
+    document.getElementById("perimeter").innerText = "Chu vi hinh chu nhat la: " + rect.getPerimeter();
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Drinks</title>
+</head>
+<body>
+<p id="display"></p>
+<label for="text">Bạn mua đồ uống số mấy: </label>
+<input onchange="order()" id="text" type="number">
+<p id="price"></p>
+<label for="quality">Số lượng bạn muốn mua: </label>
+<input onchange="total()" id="quality" type="number">
+<p id="total"></p>
+<script>
+   let menus =["Cafe",
+       "Cam vắt",
+      " Nước ép cà rốt",
+      " Nước ép cà chua",
+      " Nước lọc",
+      " Nước dừa"];
+   let prices =["10000",
+       "15000",
+      " 15000",
+      " 15000",
+       "5000",
+      " 10000"];
+    let data = "";
+    let i;
+    let price = 0;
+    data += "<table>";
+    for (i = 0; i < menus.length; i++){
+        data +="<tr>"+"<td>"+ (i + 1) + "." + menus[i] +"</td>"+"</tr> ";
+    }
+    data += "</table>";
+
+    document.getElementById("display").innerHTML = data;
+    function order (){
+        let a = document.getElementById("text").value;
+        if (a >= 7){
+            document.getElementById("text").value = "";
+        }
+        if (a > 0){
+            price = prices[a - 1];
+            document.getElementById("price").innerHTML = menus[a - 1] +" giá: "+ price
+        }
+        setTimeout(order, 1);
+    }
+    function total() {
+        let quality = document.getElementById("quality").value;
+        document.getElementById("total").innerHTML ="Tổng tiền là: " +(quality * price);
+    }
+
+</script>
+</body>
+</html>

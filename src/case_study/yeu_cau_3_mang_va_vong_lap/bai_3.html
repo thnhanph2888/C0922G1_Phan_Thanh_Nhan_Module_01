@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Max Fraction</title>
+</head>
+<body>
+<script>
+    let numerators = [3, 4, 5, 3];
+    let denominators = [9, 7, 6, 5];
+    let i, j;
+    let quotient = +numerators[0] / +denominators[0];
+    let result = "";
+
+    function maxFragtion(rator, nator) {
+        let result1;
+        for (i = 0; i < rator.length; i++) {
+            if (+rator[i] / +nator[i] > quotient) {
+                quotient = rator[i] / +nator[i];
+                result1 = rator[i] + "/" + nator[i];
+            }
+        }
+        document.write("Phân số lớn nhất là: " + result1 +
+            "<br>Có chỉ số là: " + i + "<br>");
+    }
+    maxFragtion(numerators,denominators);
+    for (i = 0; i < numerators.length; i++) {
+        for (j = 0; j < denominators.length; j++) {
+            if (+numerators[i] / +denominators[j] > quotient) {
+                quotient = +numerators[i] / +denominators[j];
+                result = "" + numerators[i] + "/" + denominators[j];
+            }
+        }
+    }
+    document.write("Phân số lớn nhất khi đảo thứ tự thành phần trong mảng là là: " + result);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+</head>
+<body>
+<script>
+    let arrayA = [1,2,3];
+    let arrayB = [1,2,3,3,45,56,5];
+    let arrayNew = [];
+    let exist = false;
+    let existNew = false;
+    let i;
+    let j;
+    let a = arrayA.length;
+    for ( i = 0; i < arrayB.length; i++){
+        for ( j = 0; j < a; j++){
+                exist = false;
+            if (arrayB[i] === arrayA[j]){
+                arrayA.splice(j,1);
+                console.log(arrayA.length)
+                exist = true;
+                break;
+            }
+        }
+        if (exist === false){
+            for (let k = 0; k < arrayNew.length; k++){
+                if(arrayB[i] === arrayNew[k] ){
+                     existNew = true;
+                }
+            }
+            if (existNew === false){
+                arrayNew.push(arrayB[i]);
+            }
+
+        }
+    }
+    if (arrayNew.length > 0){
+        document.write(arrayNew.join(", "));
+    }else {
+        alert("Cac phan tu xuat hien trong B đeu xuat hiẹn trong A");
+    }
+
+</script>
+</body>
+</html>

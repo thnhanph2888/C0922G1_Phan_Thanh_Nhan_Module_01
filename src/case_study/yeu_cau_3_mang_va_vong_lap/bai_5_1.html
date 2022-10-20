@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Drinks</title>
+</head>
+<body>
+<script>
+    let menus =["Cafe",
+        "Cam vắt",
+        " Nước ép cà rốt",
+        " Nước ép cà chua",
+        " Nước lọc",
+        " Nước dừa"];
+    let prices =["10000",
+        "15000",
+        " 15000",
+        " 15000",
+        "5000",
+        " 10000"];
+    let  data = "";
+    let option = 0;
+    let i, quality;
+    do {
+        for (i = 0; i < menus.length; i++){
+            data +=  (i + 1)+ ". " + menus[i]+ "  "
+        }
+        alert(data);
+         option = +prompt("Ban muon goi dô uong so may? ");
+             alert(menus[option - 1]+prices[option - 1]);
+             quality = +prompt("Ban muon mua bao nhieu?");
+             alert("Tong tien don hang cua ban la: " + (quality * prices[option - 1]));
+             option = +prompt("Chon 7 để chốt đơn, chọn 0 để tiếp tục đặt hàng");
+
+    } while (option !== 7);
+    alert("Cam on ban da ghe tham");
+</script>
+</body>
+</html>
