@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adam And Eva</title>
+</head>
+<body>
+<script>
+    class Apple {
+        constructor(weight) {
+            this.weight = weight;
+        }
+        decrease = function () {
+            this.weight--;
+        }
+        isEmpty = function () {
+            return this.weight <= 0;
+        }
+        getWeight = function () {
+            return this.weight;
+        }
+    }
+    class Human {
+        constructor(name, gender, weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+        }
+        isMale = function () {
+            if (this.gender === "Male") {
+                return true;
+            } else {
+                console.log("female")
+                return false;
+            }
+        }
+        setGender = function (gender) {
+            this.gender = gender;
+        }
+        checkApple = function (apple) {
+            if (apple.isEmpty()) {
+                document.write("Het tao roi! <br>");
+                return false;
+            } else {
+                document.write("Con tao! <br>");
+                return true;
+            }
+        }
+        eat = function (apple) {
+           if (this.checkApple(apple) === true){
+               this.weight++;
+               apple.decrease();
+               document.write(this.name + " an tao <br> qua tao con: " + apple.getWeight() + " kg <br> Can nang cua " + this.name + " bay gio la: " + this.weight + "<br>");
+           } else {
+               document.write("Het tao roi!");
+           }
+        }
+        say = function () {
+            if (this.gender === "Male") {
+                document.write(this.name + ": " + "Eva an di! <br>")
+            } else {
+                console.log("female")
+                document.write(this.name + ": " + "Adam an di! <br>")
+            }
+        }
+        getName = function () {
+            return this.name;
+        }
+        setName = function (name) {
+            this.name = name;
+        }
+        getWeight = function () {
+            return this.weight;
+        }
+        setWeight = function (weight) {
+            this.weight = weight;
+        }
+    }
+    let apple = new Apple(50);
+    let adam = new Human("Adam", "Male", 65);
+    let eva = new Human("Eva", "Female", 55);
+    while (apple.isEmpty() !== true){
+        adam.checkApple(apple);
+        adam.say()
+        eva.eat(apple);
+        eva.say();
+        adam.eat(apple);
+    }
+    document.write("Het tao roi!");
+</script>
+</body>
+</html>

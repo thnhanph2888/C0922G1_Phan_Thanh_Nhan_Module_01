@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Switches And Light Bulds</title>
+</head>
+<body>
+<script>
+    class ElectricLamp{
+        constructor(status) {
+           this.status = status;
+        }
+        turnOff = function () {
+             this.status = false;
+             alert("turnOff");
+        }
+        turnOn = function () {
+            this.status = true;
+            alert("turnOn");
+        }
+    }
+    class SwitchButton{
+        constructor(status, lamp) {
+            this.status = status;
+            this.lamp = lamp;
+        }
+        connectToLamp = function(electricLamp){
+            this.lamp = electricLamp;
+        }
+        switchOff = function () {
+           this.lamp.turnOff();
+           return this.status = false;
+        }
+        switchOn = function () {
+           this.lamp.turnOn();
+           return this.status = false;
+        }
+    }
+    let lamp = new ElectricLamp(false);
+    let switchButton = new SwitchButton(false, lamp);
+    switchButton.connectToLamp(lamp)
+    for (let i = 0; i < 10; i++){
+        switchButton.switchOn();
+        alert(lamp.status);
+        switchButton.switchOff();
+        alert(lamp.status);
+    }
+</script>
+</body>
+</html>
