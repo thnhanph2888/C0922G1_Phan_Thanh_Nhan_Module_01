@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uppercase</title>
+</head>
+<body>
+<script>
+    let str = prompt("Nhap vao sau ki tu");
+    let LOWER = 'abcdefghijklmnopqrstuvwxyz';
+    str = str.toLowerCase();
+    function makeStringRight(str) {
+        for (let i = 0; i < str.length; i++) {
+            if (i === 0 && LOWER.indexOf(str[i]) !== -1) {
+                let a = str[i].toUpperCase();
+                str = str.split("");
+                str[i] = a;
+                str = str.join("");
+            }
+            if (str[i] === " " && str[i + 1] === " "){
+                str = str.split("");
+                console.log(str);
+                str.splice(i, 1);
+                str = str.join("");
+                break;
+            }
+            if (str[i] === " "){
+                if (LOWER.indexOf(str[i + 1]) !== -1) {
+                    let a = str[i + 1].toUpperCase();
+                    str = str.split("");
+                    console.log(str);
+                    str[i + 1] = a;
+                    str = str.join("");
+                    console.log(str);
+                }
+            }
+        }
+        return str;
+    }
+    function getMaxlength(str) {
+        str = str.split(" ");
+        let max = str[0].length;
+        let maxStr = '';
+        for (let i = 0; i < str.length; i++) {
+            if (str[i].length > max) {
+                max = str[i].length;
+                maxStr = str[i];
+            }
+        }
+        return maxStr;
+    }
+    function doMain(str) {
+         document.write("Xâu kí tự ban đầu là: " + str);
+         document.write("<br>Xâu kí tự sau khi chuẩn hóa là: " + makeStringRight(str));
+         document.write("<br>Từ dài nhất trong xâu kí tự là: " + getMaxlength(makeStringRight(str)));
+
+    }
+    doMain(str);
+</script>
+</body>
+</html>

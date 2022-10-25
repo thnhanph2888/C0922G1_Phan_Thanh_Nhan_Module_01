@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Management</title>
+    <style>
+        tr {
+            padding-bottom: 2px;
+        }
+
+        body {
+            margin-left: 5%;
+            background: #85c67b;
+            color: #071a00;
+        }
+
+        td {
+            border-radius: 4px;
+            background: #e0e0e0;
+            padding-left: 20px;
+            padding-right: 10px;
+            padding-bottom: 5px;
+        }
+
+        button {
+            background: #2b7602;
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+<h4>Add New Product</h4>
+<input type="text" id="addName">
+<input type="text" id="addPrice">
+<button onclick="addProduct()">Add</button>
+<h4>Display All Product</h4>
+<input type="text" id="editName">
+<input type="text" id="editPrice">
+<button onclick="change()">Change</button>
+
+<p id="table"></p>
+<script>
+    class Product {
+        constructor(name, price) {
+            this.name = name;
+            this.price = price;
+        }
+    }
+
+    function addProduct() {
+        data = "";
+        let inputName = document.getElementById("addName").value;
+        let inputPrice = document.getElementById("addPrice").value;
+        let namee = "product" + product.length
+        namee = new Product(inputName, inputPrice);
+        product.push(namee);
+        console.log(product[product.length - 1].price);
+        createTable(product);
+        alert(" them vao danh sach san pham");
+    }
+
+    function getDataChange(position) {
+        positionEdit = position;
+        document.getElementById("editName").innerText = "";
+        document.getElementById("editName").value = product[position].name;
+        document.getElementById("editPrice").innerText = "";
+        document.getElementById("editPrice").value = product[position].price;
+    }
+
+    function change() {
+        product[positionEdit].name = document.getElementById("editName").value;
+        product[positionEdit].price = document.getElementById("editPrice").value;
+        document.getElementById("name" + positionEdit).innerHTML = product[positionEdit].name + "<br>" + product[positionEdit].price;
+    }
+
+    function deleteProduct(position) {
+        data = "";
+        product.splice(position, 1);
+        createTable(product);
+    }
+
+    let product = [];
+    let nameProducts = ["Sony", "Samsung Galaxy", "Nokia 6", "Xiaomi Redmi Note 4", "Iphone 6", "Oppo A7"];
+    let priceProducts = [1000, 100, 2002, 2020, 222, 999];
+    let i;
+    let data = "";
+    let positionEdit = 0;
+    for (i = 0; i < nameProducts.length; i++) {
+        product[i] = product + i;
+        product[i] = new Product(nameProducts[i], priceProducts[i]);
+    }
+
+    function createTable(product) {
+        data = data + "<table>";
+        for (i = 0; i < product.length; i++) {
+            data += "<tr>" + "<td><p>" + (i + 1) + ".</p></td>";
+            data += "<td id='name" + i + "'>" + product[i].name + "<br>" + "Giá: " + product[i].price + "</td>";
+            data += "<td><button value='" + i + "' onclick='getDataChange(this.value)'>edit</button></td> ";
+            data += "<td><button value='" + i + "' onclick='deleteProduct(this.value)'>delete</button></td>";
+        }
+        data += "</table>";
+        document.getElementById("table").innerHTML = data;
+    }
+
+    createTable(product);
+
+</script>
+</body>
+</html>

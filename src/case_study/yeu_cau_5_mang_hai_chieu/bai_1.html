@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cacurlate Even Number </title>
+</head>
+<body>
+<script>
+    let m = +prompt("Nhập số dòng");
+    let n = +prompt("Nhập số cột");
+    let array = [];
+
+    let i, j;
+    for (i = 0; i < m; i++) {
+        array[i] = new Array();
+        for (j = 0; j < n; j++) {
+            array[i].push(+Math.ceil(Math.random() * 5));
+        }
+    }
+
+    function sumEvenNum(array) {
+        let sum = 0;
+        for (i = 0; i < m; i++) {
+            for (j = 0; j < n; j++) {
+                if (array[i][j] % 2 === 0) {
+                    sum += array[i][j];
+                }
+            }
+        }
+        return sum;
+    }
+    document.write("Tổng các số chẵn là: " + sumEvenNum(array));
+</script>
+</body>
+</html>

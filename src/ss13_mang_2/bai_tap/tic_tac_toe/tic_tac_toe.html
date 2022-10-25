@@ -22,7 +22,7 @@
 <body>
 <h3>Tic Tac Toe</h3>
 <p id="table"></p>
-<button onclick="play()">Bắt đầu</button>
+<button onclick="reset()">Reset</button>
 <script>
     let board = [];
     let i;
@@ -135,6 +135,15 @@
             winX = false;
         }
     }
+    function reset() {
+        for (i = 0; i < 8; i++) {
+            for (j = 0; j < 8; j++) {
+                board[i][j] = ". .";
+                document.getElementById("button" + i + j).innerHTML = ". .";
+            }
+        }
+    }
+
 </script>
 </body>
 </html>

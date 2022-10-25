@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Max Value</title>
+</head>
+<body>
+<script>
+    let m = +prompt("Nhập số dòng");
+    let n = +prompt("Nhập số cột");
+    let array = [];
+    let i, j;
+    for (i = 0; i < m; i++) {
+        array[i] = new Array();
+        for (j = 0; j < n; j++) {
+            array[i].push(+Math.ceil(Math.random() * 100));
+        }
+    }
+    let max = array[0][0];
+    function findMax(array) {
+        for (let i = 0; i < m; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+                if (max < array[i][j]){
+                    max = array[i][j];
+                }
+            }
+        }
+        return max;
+    }
+    document.write("Giá trị lớn nhất trong mảng là: " + findMax(array));
+</script>
+</body>
+</html>

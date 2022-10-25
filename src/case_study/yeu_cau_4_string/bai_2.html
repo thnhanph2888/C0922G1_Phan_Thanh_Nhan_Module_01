@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Count Char Different</title>
+</head>
+<body>
+<script>
+    let a = prompt("Nhap vao mot xau ki tu");
+    function countCharDifferent(a) {
+        let temp = a[0];
+        let count = 0;
+        let array = [""];
+        let flag = false;
+        for (let i = 0; i < a.length; i++) {
+            for (let j = 0; j < array.length; j++) {
+                console.log("has  "+ array[j])
+                if (a[i] === array[j]) {
+                    console.log("true")
+                    flag = true;
+                }
+            if (temp !== a[i] && flag === false){
+                    count++;
+                    array.push(temp);
+                    console.log(array)
+                    console.log(temp);
+                    temp = a[i];
+                }
+            }
+        }
+        if(count > 0){
+            count++;
+        }
+        return count;
+    }
+    document.write("Số kí tự khác nhau là: " + countCharDifferent(a));
+</script>
+</body>
+</html>

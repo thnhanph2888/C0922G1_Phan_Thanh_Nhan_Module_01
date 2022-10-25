@@ -31,7 +31,7 @@
 <button onclick="add()">Add</button>
 <h4>Display All Product</h4>
 <input type="text" id="edit">
-<button onclick="submit()">Summit</button>
+<button onclick="submit()">Change</button>
 
 <p id="table"></p>
 <script>
@@ -42,7 +42,9 @@
     function createTable(array) {
         data = data + "<table>"
         for (i = 0; i < array.length; i++) {
-            data += "<tr>" + "<td><p>" + (i + 1) + ".</p></td>" + "<td id='name"+i+"'>" + array[i] + "</td>" + "<td><button value='"+i+"' onclick='editProduct(this.value)'>edit</button></td> " +
+            data += "<tr>" + "<td><p>" + (i + 1) + ".</p></td>" +
+                "<td id='name"+i+"'>" + array[i] +"<br>"+ + "</td>" + "" +
+                "<td><button value='"+i+"' onclick='editProduct(this.value)'>edit</button></td> " +
                 "<td><button value='"+i+"' onclick='deleteProduct(this.value)'>delete</button></td>"
         }
         data += "</table>"
@@ -61,7 +63,6 @@
     function editProduct(position) {
         positionEdit = position;
         document.getElementById("edit").innerText = ""
-        console.log(position)
         document.getElementById("edit").value = nameProducts[position];
     }
     function submit() {
