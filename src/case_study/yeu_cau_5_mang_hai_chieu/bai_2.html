@@ -33,6 +33,7 @@
     function countPrime(array) {
         let countPrime = 0;
         for (i = 0; i < m; i++) {
+            console.log("array:  "+array[i])
             for (j = 0; j < array[i].length; j++) {
                 if (checkPrime(array[i][j])){
                     console.log(array[i][j])

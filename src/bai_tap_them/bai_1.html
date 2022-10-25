@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Prime</title>
+</head>
+<body>
+<script>
+    let a = prompt("Nhập độ dài của mảng: ");
+    let arrayNumber = [];
+    let arrayPrime = [];
+    let i;
+    for ( i = 0; i < a; i++){
+        let nums = Math.ceil(Math.random() * 10);
+        arrayNumber.push(nums);
+    }
+    function checkNumber() {
+        let count = 0;
+        for (i = 0; i < arrayNumber.length; i++){
+            console.log(arrayNumber[i])
+            for (let j = 1; j  <= arrayNumber[i]; j++){
+                if (arrayNumber[i] % j === 0){
+                      count++;
+                }
+            }
+            if (count === 2){
+                arrayPrime.push(arrayNumber[i]);
+            } else {
+                console.log(false);
+            }
+            count = 0;
+        }
+    }
+    checkNumber();
+    console.log(arrayNumber)
+    document.write(arrayPrime.join(", "));
+</script>
+</body>
+</html>

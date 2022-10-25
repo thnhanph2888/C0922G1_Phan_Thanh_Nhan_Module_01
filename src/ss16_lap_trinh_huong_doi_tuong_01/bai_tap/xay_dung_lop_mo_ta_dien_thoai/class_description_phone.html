@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class Description Phone</title>
+    <style>
+        button {
+            width: 60px;
+            background-color: #fdf9f9;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td colspan="3"><textarea id="output1" style=" width: 290px; height: 300px"></textarea></td>
+        <td style="width: 100px"></td>
+        <td colspan="3"><textarea id="output2" style=" width: 290px; height: 300px"></textarea></td>
+    </tr>
+    <tr>
+        <td colspan="2"><input onkeydown="phone1.typing(this.id)" type="text" id="inputMess1"></td>
+        <td>
+            <button id="phone1" value="inputMess1" onclick="phone1.sendMessage(this.value,phone2,OUTPUT[1])">Send
+            </button>
+        </td>
+        <td colspan="1"></td>
+        <td colspan="2"><input onkeydown="phone2.typing(this.id)" type="text" id="inputMess2"></td>
+        <td>
+            <button id="phone2" value="inputMess2" onclick="phone2.sendMessage(this.value,phone1,OUTPUT[0])">Send
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <td><input id="battery1"></td>
+        <td style="float: right">
+            <button onclick="phone1.showMessageInbox()">Inbox</button>
+        </td>
+        <td>
+            <button onclick="phone1.showMessageSent()">Sent</button>
+        </td>
+        <td></td>
+        <td><input id="battery2"></td>
+        <td style="float: right">
+            <button onclick="phone2.showMessageSent()">Inbox</button>
+        </td>
+        <td>
+            <button onclick="phone2.showMessageSent()">Sent</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button style="background-color: #1f5a00; color: #e0e0e0" onclick="chargePhone(phone1)">Chagre</button>
+        </td>
+        <td colspan="3"></td>
+        <td>
+            <button style="background-color: #1f5a00; color: #e0e0e0" onclick="chargePhone(phone2)">Chagre</button>
+        </td>
+    </tr>
+</table>
+<script>
+    const OUTPUT = ["output1", "output2"];
+
+    class Phone {
+        constructor(status, battery, id) {
+            this.id = id;
+            this.battery = battery;
+            this.messageTyping = [];
+            this.messageInbox = [];
+            this.messageSent = [];
+            this.status = status;
+        }
+
+        setOnOff(on) {
+            this.status = on;
+        }
+
+        chargeBattery() {
+            if(this.battery <= 100) {
+                let batteried = ++this.battery;
+                document.getElementById("battery" + this.id).value = batteried + "%";
+            }
+            console.log("hello")
+
+        }
+
+        decreaseBattery() {
+            if (this.battery > 0) {
+                let battery = --this.battery + "%";
+                document.getElementById("battery" + this.id).value = battery;
+            } else {
+                document.getElementById("battery" + this.id).value = "hết pin tắt nguồn";
+            }
+        }
+
+        typing(id) {
+            this.decreaseBattery();
+            let a = document.getElementById(id).value;
+            this.messageTyping.push(a);
+        }
+
+        sendMessage(idInput, phone, idOutput) {
+            this.decreaseBattery();
+            let mess = document.getElementById(idInput).value;
+            document.getElementById(idInput).value = "";
+            this.messageSent.push(mess);
+            phone.setMessageInbox(mess);
+            document.getElementById(idOutput).innerText = phone.getMessInbox();
+        }
+
+        setMessageInbox(messageInbox) {
+            this.messageInbox.push(messageInbox);
+        }
+
+        getMessInbox() {
+            this.decreaseBattery();
+            return this.messageInbox[this.messageInbox.length - 1];
+        }
+
+        showMessageInbox() {
+            this.decreaseBattery();
+            console.log(this.messageInbox);
+            document.getElementById("output" + this.id).value = this.messageInbox;
+        }
+
+        showMessageSent() {
+            this.decreaseBattery();
+            document.getElementById("output" + this.id).value = this.messageSent;
+
+        }
+    }
+
+    let phone1 = new Phone(true, 100, 1);
+    let phone2 = new Phone(true, 100, 2);
+
+    // function chargePhone(phone) {
+    //     if(phone.battery <= 100) {
+    //         let batteried = ++phone.battery;
+    //         document.getElementById("battery" + phone.id).value = batteried + "%";
+    //     }
+    //
+    //     setTimeout(chargePhone(phone),300);
+    // }
+    async function chargePhone(phone) {
+        if(phone.battery <= 100) {
+            let batteried = ++phone.battery;
+            document.getElementById("battery" + phone.id).value = batteried + "%";
+        }
+        while (phone.battery <= 100) {
+            await new Promise(next => {
+                setTimeout(chargePhone, 500)
+            })
+        }
+    }
+
+
+</script>
+</body>
+</html>

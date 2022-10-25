@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sort Array</title>
+</head>
+<body>
+<button onclick="sortChar() ">Sắp xếp mảng kí tự</button>
+<button onclick="sortNumber() ">Sắp xếp mảng só</button>
+<p id="result1"></p>
+<p id="result2"></p>
+<script>
+    let a = [];
+    let arrayNum = [];
+
+    function sortChar() {
+        while (a.length < 6){
+            a.push(prompt("Thêm phần tử mới: "));
+        }
+        document.getElementById("result1").innerHTML = "Mảng ban đầu là: "+ a.join(", ");
+        a.sort();
+        document.getElementById("result2").innerHTML = "<br>Mảng sau khi được sắp xếp là: " + a.join(", ");
+    }
+
+    function sortNumber(){
+        alert("Nhập vào mảng số: ");
+        while (arrayNum.length < 5){
+            arrayNum.push(+prompt("Thêm số mới vào mảng: "));
+        }
+        document.getElementById("result1").innerHTML = "<br>Mảng số ban đầu là: " + arrayNum.join(", ");
+
+        let temp;
+        for (let i = 0; i < arrayNum.length; i++){
+            for (let j = 0; j < arrayNum.length; j++){
+                if (arrayNum[i] < arrayNum[j]){
+                    temp = arrayNum[i];
+                    arrayNum[i] = arrayNum[j];
+                    arrayNum[j] = temp;
+                }
+            }
+        }
+        document.getElementById("result2").innerHTML = "<br>Mảng số sau khi sắp xếp là: " + arrayNum.join(", ");
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Nagetive Integer</title>
+</head>
+<body>
+<script>
+    let arrayNum = [-2,6,-3,453,-32,];
+    for (let i = 0; i < arrayNum.length; i++){
+        if (arrayNum[i] < 0){
+            arrayNum.splice(i,1);
+        }
+    }
+    document.write("Mảng sau khi xóa phần tử nguyên âm là: " + arrayNum.join(", "));
+</script>
+</body>
+</html>

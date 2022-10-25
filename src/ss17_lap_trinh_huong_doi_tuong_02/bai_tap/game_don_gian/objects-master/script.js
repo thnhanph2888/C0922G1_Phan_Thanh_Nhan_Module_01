@@ -60,7 +60,7 @@ function start() {
             document.getElementById("game").innerHTML = hero.getHeroElement();
             break;
     }
-    setTimeout(start, 300);
+    setTimeout(start,300);
 }
 
 start();

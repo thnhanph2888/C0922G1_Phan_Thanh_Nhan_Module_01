@@ -19,7 +19,7 @@
     let max = array[0][0];
     function findMax(array) {
         for (let i = 0; i < m; i++) {
-            for (let j = 0; j < array[i].length; j++) {
+            for (let j = 0; j < array.length; j++) {
                 if (max < array[i][j]){
                     max = array[i][j];
                 }
@@ -27,6 +27,8 @@
         }
         return max;
     }
+
+    console.log(array)
     document.write("Giá trị lớn nhất trong mảng là: " + findMax(array));
 </script>
 </body>
