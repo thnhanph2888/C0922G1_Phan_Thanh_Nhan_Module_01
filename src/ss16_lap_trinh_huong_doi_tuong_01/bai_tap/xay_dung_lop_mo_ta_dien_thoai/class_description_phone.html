@@ -4,61 +4,75 @@
     <meta charset="UTF-8">
     <title>Class Description Phone</title>
     <style>
+        body{
+            background: #b1a99d;
+        }
         button {
             width: 60px;
-            background-color: #fdf9f9;
+            background-color: #fdfdfd;
         }
     </style>
 </head>
 <body>
 <table>
     <tr>
-        <td colspan="3"><textarea id="output1" style=" width: 290px; height: 300px"></textarea></td>
+        <td colspan="3"><textarea id="output1" style=" width: 295px; height: 300px"></textarea></td>
         <td style="width: 100px"></td>
-        <td colspan="3"><textarea id="output2" style=" width: 290px; height: 300px"></textarea></td>
+        <td colspan="3"><textarea id="output2" style=" width: 295px; height: 300px"></textarea></td>
     </tr>
     <tr>
-        <td colspan="2"><input onkeydown="phone1.typing(this.id)" type="text" id="inputMess1"></td>
+        <td colspan="2"><input onkeydown="phone1.typing(this.id)" type="text" id="input1"></td>
         <td>
-            <button id="phone1" value="inputMess1" onclick="phone1.sendMessage(this.value,phone2,OUTPUT[1])">Send
-            </button>
+            <button id="send1" value="input1" onclick="phone1.sendMessage(this.value,phone2)">Send</button>
         </td>
         <td colspan="1"></td>
-        <td colspan="2"><input onkeydown="phone2.typing(this.id)" type="text" id="inputMess2"></td>
+        <td colspan="2"><input onkeydown="phone2.typing(this.id)" type="text" id="input2"></td>
         <td>
-            <button id="phone2" value="inputMess2" onclick="phone2.sendMessage(this.value,phone1,OUTPUT[0])">Send
-            </button>
+            <button id="send2" value="input2" onclick="phone2.sendMessage(this.value,phone1)">Send</button>
         </td>
     </tr>
     <tr>
         <td><input id="battery1"></td>
         <td style="float: right">
-            <button onclick="phone1.showMessageInbox()">Inbox</button>
+            <button id="inbox1" onclick="phone1.showMessageInbox()">Inbox</button>
         </td>
         <td>
-            <button onclick="phone1.showMessageSent()">Sent</button>
+            <button id="sent1" onclick="phone1.showMessageSent()">Sent</button>
         </td>
         <td></td>
         <td><input id="battery2"></td>
         <td style="float: right">
-            <button onclick="phone2.showMessageSent()">Inbox</button>
+            <button id="inbox2" onclick="phone2.showMessageInbox()">Inbox</button>
         </td>
         <td>
-            <button onclick="phone2.showMessageSent()">Sent</button>
+            <button id="sent2" onclick="phone2.showMessageSent()">Sent</button>
         </td>
     </tr>
     <tr>
         <td>
-            <button style="background-color: #1f5a00; color: #e0e0e0" onclick="chargePhone(phone1)">Chagre</button>
+            <input id="name1" style="text-align: center ;border-radius: 30px" type="text" value="PHONE 1">
         </td>
-        <td colspan="3"></td>
         <td>
-            <button style="background-color: #1f5a00; color: #e0e0e0" onclick="chargePhone(phone2)">Chagre</button>
+            <button id="charge1" style="background-color: #1d00e2; color: #e0e0e0" onclick="chargePhone(phone1)">Chagre</button>
+        </td>
+
+        <td>
+            <input id="switch1" value="ON" onclick="phone1.switchOn()" style=" text-align: center;width: 50px;border-radius: 20px; background-color: #169c00; color: #e0e0e0">
+        </td>
+        <td></td>
+        <td>
+            <input id="name2" style=" text-align: center;border-radius: 30px" type="text" value="PHONE 2">
+        </td>
+        <td>
+            <button id="charge2" style="background-color: #1d00e2; color: #e0e0e0" onclick="chargePhone(phone2)">Chagre</button>
+        </td>
+        <td>
+            <input id="switch2" value="ON" onclick="phone2.switchOn()" style=" text-align: center;width: 50px;border-radius: 20px; background-color: #169c00; color: #e0e0e0">
         </td>
     </tr>
 </table>
 <script>
-    const OUTPUT = ["output1", "output2"];
+    let battery = 0;
 
     class Phone {
         constructor(status, battery, id) {
@@ -70,41 +84,93 @@
             this.status = status;
         }
 
-        setOnOff(on) {
-            this.status = on;
+        getStatus() {
+            return this.status;
         }
 
-        chargeBattery() {
-            if(this.battery <= 100) {
-                let batteried = ++this.battery;
-                document.getElementById("battery" + this.id).value = batteried + "%";
+        setStatus(status) {
+            this.status = status;
+        }
+        turnOn(){
+            if (this.getBattery() > 0){
+                document.getElementById("input" + this.id).style.backgroundColor = "#fafafa"
+                document.getElementById("name" + this.id).style.backgroundColor = "#fafafa"
+                document.getElementById("send" + this.id).style.backgroundColor = "#fafafa"
+                document.getElementById("sent" + this.id).style.backgroundColor = "#fafafa"
+                document.getElementById("inbox" + this.id).style.backgroundColor = "#fafafa"
+                document.getElementById("battery" + this.id).style.backgroundColor = "#fafafa"
+                document.getElementById("output" + this.id).style.backgroundColor = "#ffffff"
+                document.getElementById("switch" + this.id).value = "OFF";
+                document.getElementById("switch" + this.id).style.backgroundColor = "#fd0000"
+                this.status = true;
+                alert("Turn on PHONE: " + this.id + "!");
+            } else {
+                alert("Điện thoại đã hết pin!");
             }
-            console.log("hello")
-
         }
-
+        turnOff(){
+            document.getElementById("output" + this.id).style.backgroundColor = "#868786"
+            document.getElementById("name" + this.id).style.backgroundColor = "#868786"
+            document.getElementById("input" + this.id).style.backgroundColor = "#868786"
+            document.getElementById("send" + this.id).style.backgroundColor = "#868786"
+            document.getElementById("sent" + this.id).style.backgroundColor = "#868786"
+            document.getElementById("inbox" + this.id).style.backgroundColor = "#868786"
+            document.getElementById("battery" + this.id).style.backgroundColor = "#868786"
+            document.getElementById("switch" + this.id).value = "ON";
+            document.getElementById("switch" + this.id).style.backgroundColor = "#169c00"
+            this.status = false;
+            alert("Turn off PHONE: " + this.id + "!");
+        }
+        switchOn() {
+            if (this.status === false) {
+               this.turnOn();
+            } else {
+               this.turnOff();
+            }
+        }
         decreaseBattery() {
-            if (this.battery > 0) {
+            battery = this.getBattery();
+            console.log(battery)
+            if (battery > 0) {
                 let battery = --this.battery + "%";
                 document.getElementById("battery" + this.id).value = battery;
             } else {
                 document.getElementById("battery" + this.id).value = "hết pin tắt nguồn";
+               this.turnOff();
             }
         }
 
-        typing(id) {
-            this.decreaseBattery();
-            let a = document.getElementById(id).value;
-            this.messageTyping.push(a);
+        getBattery() {
+            return this.battery;
         }
 
-        sendMessage(idInput, phone, idOutput) {
-            this.decreaseBattery();
-            let mess = document.getElementById(idInput).value;
-            document.getElementById(idInput).value = "";
-            this.messageSent.push(mess);
-            phone.setMessageInbox(mess);
-            document.getElementById(idOutput).innerText = phone.getMessInbox();
+        setBattery(battery) {
+            this.battery = battery;
+        }
+
+        typing(id) {
+            if (this.getStatus() === true) {
+                this.decreaseBattery();
+                let a = document.getElementById(id).value;
+                this.messageTyping.push(a);
+            } else {
+                document.getElementById(id).value = "";
+                alert("Điện thoại đang tắt!");
+            }
+        }
+
+        sendMessage(idInput, phone) {
+            if (this.getStatus() === true) {
+                this.decreaseBattery();
+                let mess = document.getElementById(idInput).value;
+                document.getElementById(idInput).value = "";
+                document.getElementById("output" + phone.id).value = "";
+                this.messageSent.push(mess);
+                phone.setMessageInbox(mess);
+                document.getElementById("output" + phone.id).value = phone.getMessInbox();
+            } else {
+                alert("Điện thoại đang tắt!");
+            }
         }
 
         setMessageInbox(messageInbox) {
@@ -117,41 +183,109 @@
         }
 
         showMessageInbox() {
-            this.decreaseBattery();
-            console.log(this.messageInbox);
-            document.getElementById("output" + this.id).value = this.messageInbox;
+            if (this.getStatus() === true) {
+                document.getElementById("output" + this.id).value = ""
+                this.decreaseBattery();
+                console.log(this.messageInbox);
+                document.getElementById("output" + this.id).value = this.messageInbox;
+            } else {
+                alert("Điện thoại đang tắt!");
+            }
+
         }
 
         showMessageSent() {
-            this.decreaseBattery();
-            document.getElementById("output" + this.id).value = this.messageSent;
+            if (this.getStatus() === true) {
+                document.getElementById("output" + this.id).value = "";
+                this.decreaseBattery();
+                document.getElementById("output" + this.id).value = this.messageSent;
+            } else {
+                alert("Điện thoại đang tắt!");
+            }
 
         }
     }
 
-    let phone1 = new Phone(true, 100, 1);
+    let phone1 = new Phone(true, 0, 1);
     let phone2 = new Phone(true, 100, 2);
+    let phone11;
+    let phone22;
+    let repeatCharge1;
+    let repeatCharge2;
+    function chargePhone(phone) {
 
-    // function chargePhone(phone) {
-    //     if(phone.battery <= 100) {
-    //         let batteried = ++phone.battery;
-    //         document.getElementById("battery" + phone.id).value = batteried + "%";
-    //     }
-    //
-    //     setTimeout(chargePhone(phone),300);
-    // }
-    async function chargePhone(phone) {
-        if(phone.battery <= 100) {
-            let batteried = ++phone.battery;
-            document.getElementById("battery" + phone.id).value = batteried + "%";
-        }
-        while (phone.battery <= 100) {
-            await new Promise(next => {
-                setTimeout(chargePhone, 500)
-            })
+        if (phone.id === 1){
+            phone11 = phone;
+            repeatCharge1 = setInterval(chargeBattery1, 300);
+        } else {
+            phone22 = phone;
+            repeatCharge2 = setInterval(chargeBattery2, 300);
         }
     }
 
+    function chargeBattery1() {
+        if (phone11.battery < 100) {
+            startColor1();
+            let batter1 = ++phone11.battery;
+            document.getElementById("battery" + phone11.id).value = batter1 + "%";
+        } else {
+            stopChargePhone()
+            stopColor1();
+        }
+    }
+    function chargeBattery2() {
+        if (phone22.battery < 100) {
+            startColor2();
+            let batter2 = ++phone22.battery;
+            document.getElementById("battery" + phone22.id).value = batter2 + "%";
+        } else {
+            stopChargePhone()
+            stopColor2();
+        }
+    }
+    function stopChargePhone(){
+        if (this.id === 1){
+            clearInterval(repeatCharge1);
+        } else{
+            clearInterval(repeatCharge2);
+        }
+    }
+    let repeatColor1;
+    let onColor1 = false;
+    let battery1;
+    let repeatColor2;
+    let onColor2 = false;
+    let battery2;
+    function color1() {
+        battery1 = document.getElementById("battery" + phone11.id);
+        battery1.style.backgroundColor = battery1.style.backgroundColor == "lightblue" ? "#b6f8a7" : "lightblue";
+    }
+    function startColor1() {
+        if (onColor1 === false) {
+            onColor1 = true;
+            repeatColor1 = setInterval(color1, 500);
+        }
+    }
+    function stopColor1() {
+        battery1.style.backgroundColor = "#ffffff";
+        onColor1 = false;
+        clearInterval(repeatColor1);
+    }
+    function color2() {
+        battery2 = document.getElementById("battery" + phone22.id);
+        battery2.style.backgroundColor = battery2.style.backgroundColor == "lightblue" ? "#b6f8a7" : "lightblue";
+    }
+    function startColor2() {
+        if (onColor2 === false) {
+            onColor2 = true;
+            repeatColor2 = setInterval(color2, 500);
+        }
+    }
+    function stopColor2() {
+        battery2.style.backgroundColor = "#ffffff";
+        onColor2 = false;
+        clearInterval(repeatColor2);
+    }
 
 </script>
 </body>
