@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UI</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            grid-template-rows: auto auto;
+        }
+
+        .item-a {
+            height: 400px;
+            border: 2px solid #071a00;
+            grid-column-start: 1;
+            grid-column-end: 2;
+          ;
+        }
+
+        .item-b {
+            border: 2px solid #071a00;
+            height: 400px;
+            grid-column-start: 2;
+            grid-column-end: 6;
+           ;
+        }
+
+        .item-c {
+            height: 50px;
+            grid-column-start: 1;
+            grid-column-end: 6;
+            background-color: #979797;
+        }
+        input1{
+
+        }
+
+        body {
+            font-family: sans-serif;
+            font-weight: bold;
+            border-radius: 5px;
+            border: 3px solid #adadad;
+        }
+        select{
+            background-color: #eae6e6;
+        }
+        .baitap{
+            background-color: #eae6e6;
+            font-weight: bold;
+            width: 70px;
+            height: 20px;
+            float: right;
+        }
+        input {
+            margin-left: 4%;
+        }
+
+        td {
+            margin-left: 10%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div style="border-bottom: 2px solid #2a2a2a; padding-top: 10px;padding-bottom: 10px; width: auto; background-color: #979797">
+    <h1 style="text-align: center; font-size: 25px">A Web Page</h1>
+
+    <span style="margin-left: 7%;font-size: 70px">&#8678</span>
+    <span style="font-size: 70px">&#8680</span>
+    <span><img style="vertical-align: 5px;width: 30px; height: 30px" src="close.png"></span>
+    <span><img style=" vertical-align: -5px;width: 50px; height: 50px" src="home.png"></span>
+    <span><input style=" vertical-align: 100%;border-radius: 5px;border: 2px solid #2b2b2b; width:800px; height: 30px " placeholder="http://"></span>
+    <span><input style="vertical-align: 100%;border-radius: 20px ; width: 90px" type="text" placeholder="Search..."></span>
+</div>
+<div style=" text-align: center;height: 80px;">
+    <span style="font-size: 60px;float: left;width: 100px">G</span>
+    <span><p style="padding-top: 10px">Hệ thống quản lý bài tập Casestudy module 1</p></span>
+</div>
+
+<div class="container">
+    <div class="grid-item item-a">
+        <table style="margin-top: 20%;margin-left: 30%">
+            <tr>
+                <td>
+                    <input  class="baitap"  value="Bài 1">
+                </td>
+                <td>
+                    <select onclick="getResutl(this.value)" style="float: left">
+                        <option>1.1</option>
+                        <option>1.2</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="baitap"  value="Bài 2">
+                </td>
+                <td>
+                    <select onclick="getResutl(this.value)" style="float: left">
+                        <option>2.1</option>
+                        <option>2.2</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="baitap"  value="Bài 3">
+                </td>
+                <td>
+                    <select onclick="getResutl(this.value)" style="float: left">
+                        <option>3.1</option>
+                        <option>3.2</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="baitap"  value="Bài 4">
+                </td>
+                <td>
+                    <select onclick="getResutl(this.value)" style="float: left">
+                        <option>4.1</option>
+                        <option>4.2</option>
+                    </select>
+                </td>
+            </tr>
+            <td>
+                <input class="baitap"  value="Bài 5">
+            </td>
+            <td>
+                <select onclick="getResutl(this.value)" style="float: left">
+                    <option>5.1</option>
+                    <option>5.2</option>
+                </select>
+            </td>
+            </tr>
+        </table>
+    </div>
+    <div class="grid-item item-b">
+        <p id="display" style="margin-left: 20px;">Resutl</p>
+    </div>
+    <div class="grid-item item-c"> </div>
+</div>
+<script>
+    let arrayExercise = [];
+    let arrayId = ["1.1","1.2","2.1","2.2","3.1","3.2","4.1","4.2","5.1","5.2"];
+    for (let i = 1; i < 6; i++){
+        arrayExercise.push("Bài tập số " + i + "." + 1);
+        arrayExercise.push("Bài tập số " + i + "." + 2);
+    }
+    console.log(arrayExercise);
+    function getResutl(id) {
+        console.log(id)
+        for (let j = 0; j < arrayId.length; j++){
+            if (id == arrayId[j]){
+                document.getElementById("display").innerText = arrayExercise[j];
+            }
+        }
+    }
+</script>
+</body>
+</html>

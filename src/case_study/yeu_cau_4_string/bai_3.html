@@ -6,14 +6,14 @@
 </head>
 <body>
 <script>
-    s1 = "aaddcaa";
-    s2 = "aadcc";
+   let s11 = "aaddcaa";
+   let s2 = "aadcc";
     count = 0;
-    s1 = s1.split("");
+    s11 = s11.split("");
    s2 = s2.split("");
-    for(let i = 0; i < s1.length; i++){
+    for(let i = 0; i < s11.length; i++){
         for (let j = 0; j < s2.length; j++){
-            if (s1[i] === s2[j]){
+            if (s11[i] === s2[j]){
                 s2.splice(j,1);
                 console.log(s2)
                 count++;

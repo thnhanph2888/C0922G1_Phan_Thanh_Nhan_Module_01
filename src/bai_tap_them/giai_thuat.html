@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiem Tra Tan Suat</title>
+</head>
+<body>
+<script>
+    let inputArray = [1,1,2,2,3,3,4,5,5,4];
+    let arrayCount = [];
+    function checkEqualFrequency() {
+        let count = 0;
+        for (let i = 0; i < inputArray.length; i++){
+            count = 0;
+            for (let j = 0; j < inputArray.length; j++){
+                if (inputArray[i] === inputArray[j]){
+                    count++;
+                }
+            }
+            arrayCount.push(count);
+            console.log(arrayCount )
+        }
+        let equal = false;
+        for (let k = 0; k < arrayCount.length - 1; k++){
+            console.log(arrayCount[k]);
+            console.log(arrayCount[k+1]);
+            if (arrayCount[k] == arrayCount[k+1]){
+                 equal = true;
+            }else {
+                equal = false;
+            }
+        }
+        return equal;
+    }
+    alert( checkEqualFrequency() + " tần suất bằng");
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>giai_thuat_2</title>
+</head>
+<body>
+<script>
+    function checkEqualPrequency() {
+
+        let inputArray = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5];
+        let arrayNum = [];
+        let arrayCount = [];
+        let count = 0;
+        for (let i = 0; i < inputArray.length; i++) {
+            if (arrayNum.indexOf(inputArray[i]) === -1) {
+                arrayNum.push(inputArray[i]);
+            }
+        }
+        for (let j = 0; j < arrayNum.length; j++) {
+            for (let k = 0; k < inputArray; k++) {
+                if (arrayNum[j] === inputArray[j]) {
+                    count++
+                }
+            }
+            arrayCount.push(count);
+            count = 0;
+        }
+        let equal = false;
+        for (let l = 0; l < arrayCount.length; l++) {
+            if (arrayCount[l] === arrayCount[l]) {
+                equal = true;
+            } else {
+                equal = false;
+            }
+        }
+        return equal;
+    }
+    document.write("Tần suất xuất hiện của các phẩn tử bằng nhau là: " + checkEqualPrequency());
+</script>
+</body>
+</html>

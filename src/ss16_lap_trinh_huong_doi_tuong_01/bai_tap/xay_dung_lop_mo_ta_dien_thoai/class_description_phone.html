@@ -91,6 +91,29 @@
         setStatus(status) {
             this.status = status;
         }
+        onStart(){
+            if (this.status === false){
+                document.getElementById("output" + this.id).style.backgroundColor = "#868786"
+                document.getElementById("name" + this.id).style.backgroundColor = "#868786"
+                document.getElementById("input" + this.id).style.backgroundColor = "#868786"
+                document.getElementById("send" + this.id).style.backgroundColor = "#868786"
+                document.getElementById("sent" + this.id).style.backgroundColor = "#868786"
+                document.getElementById("inbox" + this.id).style.backgroundColor = "#868786"
+                document.getElementById("battery" + this.id).style.backgroundColor = "#868786"
+                document.getElementById("switch" + this.id).value = "ON";
+                document.getElementById("switch" + this.id).style.backgroundColor = "#169c00"
+            } else {
+                document.getElementById("input" + this.id).style.backgroundColor = "#fafafa"
+                document.getElementById("name" + this.id).style.backgroundColor = "#fafafa"
+                document.getElementById("send" + this.id).style.backgroundColor = "#fafafa"
+                document.getElementById("sent" + this.id).style.backgroundColor = "#fafafa"
+                document.getElementById("inbox" + this.id).style.backgroundColor = "#fafafa"
+                document.getElementById("battery" + this.id).style.backgroundColor = "#fafafa"
+                document.getElementById("output" + this.id).style.backgroundColor = "#ffffff"
+                document.getElementById("switch" + this.id).value = "OFF";
+                document.getElementById("switch" + this.id).style.backgroundColor = "#fd0000"
+            }
+        }
         turnOn(){
             if (this.getBattery() > 0){
                 document.getElementById("input" + this.id).style.backgroundColor = "#fafafa"
@@ -206,7 +229,7 @@
         }
     }
 
-    let phone1 = new Phone(true, 0, 1);
+    let phone1 = new Phone(false, 2, 1);
     let phone2 = new Phone(true, 100, 2);
     let phone11;
     let phone22;
@@ -286,7 +309,8 @@
         onColor2 = false;
         clearInterval(repeatColor2);
     }
-
+    phone1.onStart();
+    phone2.onStart();
 </script>
 </body>
 </html>

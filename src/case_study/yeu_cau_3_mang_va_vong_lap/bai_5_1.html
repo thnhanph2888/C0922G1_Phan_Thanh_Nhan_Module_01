@@ -20,6 +20,7 @@
         " 10000"];
     let  data = "";
     let option = 0;
+    let total = 0;
     let i, quality;
     do {
         for (i = 0; i < menus.length; i++){
@@ -29,7 +30,9 @@
          option = +prompt("Ban muon goi dô uong so may? ");
              alert(menus[option - 1]+prices[option - 1]);
              quality = +prompt("Ban muon mua bao nhieu?");
-             alert("Tong tien don hang cua ban la: " + (quality * prices[option - 1]));
+             total = total + quality * prices[option - 1];
+             alert("Tong tien don hang cua ban la: " + total);
+             data = "";
              option = +prompt("Chon 7 để chốt đơn, chọn 0 để tiếp tục đặt hàng");
 
     } while (option !== 7);
