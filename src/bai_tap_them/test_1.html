@@ -2,9 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Test 1</title>
 </head>
 <body>
-$END$
+<script>
+    let arrayInteger =  [];
+    let n = 0;
+    while (n < 10){
+        arrayInteger.push(+prompt("Nhập vào số nguyên"));
+        n++;
+    }
+
+    document.write(arrayInteger.join(", ") + "<br>");
+    function average() {
+        let sum = 0;
+        let count = 0;
+        for (let i = 0; i < arrayInteger.length; i++){
+            if (i % 3 === 0){
+                if (arrayInteger[i] % 5 === 0){
+                    sum += arrayInteger[i]
+                    count++;
+                }
+            }
+        }
+        return sum/count;
+    }
+    document.write("Kết quả là: " + average());
+</script>
 </body>
 </html>

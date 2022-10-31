@@ -7,38 +7,18 @@
 <body>
 <script>
     let str = prompt("Nhap vao sau ki tu");
-    let LOWER = 'abcdefghijklmnopqrstuvwxyz';
-    str = str.toLowerCase();
+    let arr = str.toLowerCase().split(" ");
+    console.log(arr)
     function makeStringRight(str) {
-        for (let i = 0; i < str.length; i++) {
-            if (i === 0 && LOWER.indexOf(str[i]) !== -1) {
-                let a = str[i].toUpperCase();
-                str = str.split("");
-                str[i] = a;
-                str = str.join("");
-            }
-            if (str[i] === " " && str[i + 1] === " "){
-                str = str.split("");
-                console.log(str);
-                str.splice(i, 1);
-                str = str.join("");
-                break;
-            }
-            if (str[i] === " "){
-                if (LOWER.indexOf(str[i + 1]) !== -1) {
-                    let a = str[i + 1].toUpperCase();
-                    str = str.split("");
-                    console.log(str);
-                    str[i + 1] = a;
-                    str = str.join("");
-                    console.log(str);
-                }
+        console.log(str);
+        for (let i = 0; i < str.length; i++){
+            if (str[i] !== ""){
+               str[i] = str[i][0].toUpperCase() + str[i].slice(1);
             }
         }
         return str;
     }
     function getMaxlength(str) {
-        str = str.split(" ");
         let max = str[0].length;
         let maxStr = '';
         for (let i = 0; i < str.length; i++) {
@@ -49,13 +29,12 @@
         }
         return maxStr;
     }
-    function doMain(str) {
-         document.write("Xâu kí tự ban đầu là: " + str);
-         document.write("<br>Xâu kí tự sau khi chuẩn hóa là: " + makeStringRight(str));
-         document.write("<br>Từ dài nhất trong xâu kí tự là: " + getMaxlength(makeStringRight(str)));
-
+    function doMain(arr) {
+         document.write("Xâu kí tự ban đầu là: " + arr.join(" "));
+         document.write("<br>Xâu kí tự sau khi chuẩn hóa là: " + makeStringRight(arr).join(" "));
+         document.write("<br>Từ dài nhất trong xâu kí tự là: " + getMaxlength(makeStringRight(arr)));
     }
-    doMain(str);
+    doMain(arr);
 </script>
 </body>
 </html>

@@ -2,61 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Task 3 - Bài 2</title>
+    <title>Title</title>
 </head>
 <body>
 <script>
-    let mangA = [];
-    let mangB = [];
-    let doDaiMangA = parseInt(prompt("Nhập số phần tử mảng A"));
-
-    for (let i = 0; i < doDaiMangA; i++) {
-        mangA[i] = parseInt(prompt("Nhập phần tử thứ: " + (i + 1) + " của mảng A"))
-    }
-    document.write("Mảng A: " + mangA + "<br>");
-
-    let doDaiMangB = parseInt(prompt("Nhập số phần tử mảng B"));
-    for (let i = 0; i < doDaiMangB; i++) {
-        mangB[i] = parseInt(prompt("Nhập phần tử thứ: " + (i + 1) + " của mảng B"))
-    }
-    document.write("Mảng B: " + mangB + "<br>");
-
-    let mangC = [];
-    let checkMang = true;
-
-    if (mangA.length > mangB.length) {
-        for (let i = 0; i < mangA.length; i++) {
-            for (let j = 0; j < mangB.length; j++) {
-                if (mangA[i] == mangB[j]) {
-                    checkMang = true;
-                    break;
-                } else checkMang = false;
-            }
-            if (checkMang == false) {
-                mangC.push(mangA[i]);
-            }
+    let string = prompt("Nhập vào chuỗi bất kỳ");
+    let arr = string.toLowerCase().split(" ");
+    console.log(arr)
+    document.write( "Trước khi chuyển hóa: " + string + "<br>");
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] !== "") {
+            arr[i] = arr[i][0].toUpperCase() + arr[i].slice(1);
         }
-    } else {
-        for (let i = 0; i < mangB.length; i++) {
-            for (let j = 0; j < mangA.length; j++) {
-                if (mangA[j] == mangB[i]) {
-                    checkMang = true;
-                    break;
-                } else checkMang = false;
-            }
-            if (checkMang == false) {
-                mangC.push(mangB[i]);
-            }
+    }
+    let maxArr = 0;
+    let result = " ";
+    let arrNew = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (maxArr < arr[i].length) {
+            maxArr = arr[i].length;
+            result = arr[i];
+        }
+    }
+    for (let i = 0; i < arr.length; i++) {
+        if (result.length === arr[i].length) {
+            arrNew.push(arr[i]);
         }
     }
 
-    let mangD = [];
-    for (var i = 0; i < mangC.length; i++) {
-        if (mangD.indexOf(mangC[i]) === -1) {
-            mangD.push(mangC[i]);
-        }
-    }
-    document.write("Các phần tử xuất hiện trong mảng B nhưng lại không xuất hiện trong mảng A là: " +mangD);
+    document.write("Sau khi chuyển hóa: " + arr.join(" ") + "<br>");
+    document.write("Tất cả dài nhất trong chuỗi là: " + arrNew.join(" và "));
+
 </script>
 </body>
 </html>
