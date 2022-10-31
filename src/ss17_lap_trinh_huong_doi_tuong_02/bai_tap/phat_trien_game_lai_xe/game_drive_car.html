@@ -5,6 +5,45 @@
     <title>Drive Car</title>
 </head>
 <body>
-<canvas></canvas>
+<canvas id="rectangle" style="border: 2px solid red"></canvas>
+<div id="car">
+</div>
 </body>
+<script>
+    class Car{
+        constructor(x,y,image,size) {
+            this.x = x;
+            this.y = y;
+            this.image = image;
+            this.size = size;
+        }
+        show (ctx){
+            var image = new Image();
+            var x = this.x;
+            var y = this.y;
+            image.onload = function () {
+                ctx.drawImage(image,x,y,60,20);
+            };
+            image.src = this.image;
+        }
+    }
+    class GameBoard{
+        constructor() {
+           this.car = new Car(20,20,"car_oop.png",20);
+           this.ctx = undefined;
+        }
+        start (){
+            this.ctx = document.getElementById("rectangle").getContext("2d");
+            this.car.show(this.ctx);
+            this.render();
+        }
+        render(){
+            this.ctx.beginPath();
+            this.ctx.rect(20,20,500,400);
+            this.car.show(this.ctx);
+        }
+    }
+    let gameBoard = new GameBoard();
+    gameBoard.start();
+</script>
 </html>

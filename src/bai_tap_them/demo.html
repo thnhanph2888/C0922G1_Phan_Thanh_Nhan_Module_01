@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 3 - Bài 2</title>
+</head>
+<body>
+<script>
+    let mangA = [];
+    let mangB = [];
+    let doDaiMangA = parseInt(prompt("Nhập số phần tử mảng A"));
+
+    for (let i = 0; i < doDaiMangA; i++) {
+        mangA[i] = parseInt(prompt("Nhập phần tử thứ: " + (i + 1) + " của mảng A"))
+    }
+    document.write("Mảng A: " + mangA + "<br>");
+
+    let doDaiMangB = parseInt(prompt("Nhập số phần tử mảng B"));
+    for (let i = 0; i < doDaiMangB; i++) {
+        mangB[i] = parseInt(prompt("Nhập phần tử thứ: " + (i + 1) + " của mảng B"))
+    }
+    document.write("Mảng B: " + mangB + "<br>");
+
+    let mangC = [];
+    let checkMang = true;
+
+    if (mangA.length > mangB.length) {
+        for (let i = 0; i < mangA.length; i++) {
+            for (let j = 0; j < mangB.length; j++) {
+                if (mangA[i] == mangB[j]) {
+                    checkMang = true;
+                    break;
+                } else checkMang = false;
+            }
+            if (checkMang == false) {
+                mangC.push(mangA[i]);
+            }
+        }
+    } else {
+        for (let i = 0; i < mangB.length; i++) {
+            for (let j = 0; j < mangA.length; j++) {
+                if (mangA[j] == mangB[i]) {
+                    checkMang = true;
+                    break;
+                } else checkMang = false;
+            }
+            if (checkMang == false) {
+                mangC.push(mangB[i]);
+            }
+        }
+    }
+
+    let mangD = [];
+    for (var i = 0; i < mangC.length; i++) {
+        if (mangD.indexOf(mangC[i]) === -1) {
+            mangD.push(mangC[i]);
+        }
+    }
+    document.write("Các phần tử xuất hiện trong mảng B nhưng lại không xuất hiện trong mảng A là: " +mangD);
+</script>
+</body>
+</html>
