@@ -25,7 +25,7 @@
             padding-left: 10px;
             font-weight: bold;
             color: #ad0000;
-            font-family: Tahoma;
+            font-family: Tahoma,serif;
             font-size: 15px;
             border-color: #0aff06;
             border-collapse: collapse;
@@ -49,7 +49,6 @@
 
         button {
             font-size: 15px;
-            margin-left: 0%;
             border-bottom-right-radius: 30px;
             border-top-right-radius: 30px;
             width: 150px;
@@ -210,32 +209,41 @@
     let money = 1000;
     let lotteryRecent = "";
     let buy = false;
-
+    let check = false;
     function buyLottery() {
-
-        if (lottery.length < 5) {
-            buy = true;
-            money -= 100;
-            document.getElementById("money").value = money;
-            document.getElementById("buy").style.backgroundColor = "#7ce04d"
-            let s1 = +document.getElementById("num1").value;
-            let s2 = +document.getElementById("num2").value;
-            let s3 = +document.getElementById("num3").value;
-            let s4 = +document.getElementById("num4").value;
-            let s5 = +document.getElementById("num5").value;
-            let s6 = +document.getElementById("num6").value;
-            lottery.push(new Lottery(s1, s2, s3, s4, s5, s6));
-            lotteryRecent += "<p style='background-color: #e0e0e0;width: 100px; height: 20px'>" + s1 + s2 + s3 + s4 + s5 + s6 + "</p>"
-            document.getElementById("recentLottery").innerHTML = lotteryRecent;
-        } else {
-            alert("bạn chỉ được mua tối đa 5 vé");
+        if (check){
+            lotteryRecent = "";
+            document.getElementById("recentLottery").innerHTML = "";
+            check = false;
         }
+       if (money > 100){
+           if (lottery.length < 5) {
+               buy = true;
+               money -= 100;
+               document.getElementById("money").value = money;
+               document.getElementById("buy").style.backgroundColor = "#7ce04d"
+               let s1 = +document.getElementById("num1").value;
+               let s2 = +document.getElementById("num2").value;
+               let s3 = +document.getElementById("num3").value;
+               let s4 = +document.getElementById("num4").value;
+               let s5 = +document.getElementById("num5").value;
+               let s6 = +document.getElementById("num6").value;
+               lottery.push(new Lottery(s1, s2, s3, s4, s5, s6));
+               lotteryRecent += "<p style='background-color: #e0e0e0;width: 100px; height: 20px'>" + s1 + s2 + s3 + s4 + s5 + s6 + "</p>"
+               document.getElementById("recentLottery").innerHTML = lotteryRecent;
+           } else {
+               alert("bạn chỉ được mua tối đa 5 vé");
+           }
+       } else {
+           alert("Bạn không đủ tiền để mua vé. Nạp hoăc Vay")
+       }
     }
 
     let result;
 
     function checkResult() {
         if (buy === true) {
+            check = true;
             buy = false;
             document.getElementById("check result").style.backgroundColor = "#7ce04d";
             let s1 = Math.ceil(Math.random() * 5);

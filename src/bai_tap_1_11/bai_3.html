@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InputArray</title>
+</head>
+<body>
+<script>
+    let arrayNew = [];
+    let n = +prompt("Nhập số phần tử của mảng!");
+    while (arrayNew.length < n){
+        let a = prompt("Nhập phần tử mới khác với phần tử còn lại: ");
+         if (arrayNew.indexOf(a) === -1 ){
+             arrayNew.push(a);
+         } else {
+             alert("Bạn nhập trùng rồi, nhập lại đi");
+         }
+    }
+    document.write("Mảng vừa nhập là: " + arrayNew.join(", "));
+</script>
+</body>
+</html>

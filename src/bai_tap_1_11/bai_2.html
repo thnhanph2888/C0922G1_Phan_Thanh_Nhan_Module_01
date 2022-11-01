@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check Symmetry</title>
+</head>
+<body>
+<script>
+    let n = +prompt("Nhập số phần tử!");
+    let arrayNumber = [];
+    while (arrayNumber.length < n){
+        let a = +prompt("Thêm số nguyên lớn hơn 0");
+        if (a > 0){
+            arrayNumber.push(a);
+        } else {
+            alert("Số bạn vừa nhập không lớn hơn không, hãy nhập lại");
+        }
+    }
+    function checkSymmetry() {
+        let symmetry = false;
+        for (let i = 0; i < arrayNumber.length; i++){
+            if (arrayNumber[i] === arrayNumber[arrayNumber.length - 1 - i]){
+                 symmetry = true;
+            } else {
+                symmetry = false;
+                break;
+            }
+        }
+        if (symmetry){
+            document.write("Đối xứng!");
+        } else {
+            document.write("Không đối xứng!");
+        }
+    }
+    document.write("Mảng nhập vào là: " + arrayNumber.join(", "));
+    checkSymmetry();
+</script>
+</body>
+</html>

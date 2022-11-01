@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test 4</title>
+    <style>
+        td{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<h3>Danh sách tài khoản ngân hàng</h3>
+<table>
+    <tr>
+        <td>Nhập mã:</td>
+        <td><input id="inputCode"></td>
+    </tr>
+    <tr>
+        <td> Nhập tên chủ tài khoản:</td>
+        <td><input id="inputNameUser"></td>
+    </tr>
+    <tr>
+        <td> Nhập tên ngân hàng:</td>
+        <td><input id="inputNameBank"></td>
+    </tr>
+    <tr>
+        <td> Nhập tổng tiền: </td>
+        <td><input id="inputTotalMoney"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><button onclick="addAccount()" style="margin-top: 10px">Thêm mới</button></td>
+    </tr>
+</table>
+
+<div id="listAccount"></div>
+<script>
+    class AccountBank {
+        constructor(code, nameUser, nameBank, totalMoney) {
+            this.code = code;
+            this.nameUser = nameUser;
+            this.nameBank = nameBank;
+            this.totalMoney = totalMoney;
+        }
+
+        getCode() {
+            return this.code;
+        }
+
+        setCode(value) {
+            this.code = value;
+        }
+
+        getNameUser() {
+            return this.nameUser;
+        }
+
+        setNameUser(value) {
+            this.nameUser = value;
+        }
+
+        getNameBank() {
+            return this.nameBank;
+        }
+
+        setNameBank(value) {
+            this.nameBank = value;
+        }
+
+        getTotalMoney() {
+            return this.totalMoney;
+        }
+
+        setTotalMoney(value) {
+            this.totalMoney = value;
+        }
+
+        toString() {
+            return "" + this.code + this.nameUser + this.nameBank + this.totalMoney
+        }
+    }
+
+    let a = new AccountBank("dsf", "dsf", "dsf", "sf");
+    let arrayAccount = [];
+    let dataOutput = "";
+    function addAccount() {
+        let codeInput = document.getElementById("inputCode").value;
+        let nameUserInput = document.getElementById("inputNameUser").value;
+        let nameBankInput = document.getElementById("inputNameBank").value;
+        let totalMoneyInput = document.getElementById("inputTotalMoney").value;
+        arrayAccount.push(new AccountBank(codeInput, nameUserInput, nameBankInput, totalMoneyInput));
+        displayListAccount();
+    }
+    function displayListAccount() {
+        document.getElementById("listAccount").innerHTML = "";
+        dataOutput = "";
+        dataOutput += "<table>";
+        for (let i = 0; i < arrayAccount.length; i++) {
+            dataOutput += "<tr><td><p>Code: " + arrayAccount[i].getCode() + "</p></td>"
+            dataOutput += "<td><p>Name User: " + arrayAccount[i].getNameUser() + "</p></td>"
+            dataOutput += "<td><p>Name Bank" + arrayAccount[i].getNameBank() + "</p></td>"
+            dataOutput += "<td><p>Total Money: " + arrayAccount[i].getTotalMoney() + "</p></td></tr>"
+        }
+        dataOutput += "</table>";
+        document.getElementById("listAccount").innerHTML = dataOutput;
+    }
+
+</script>
+</body>
+</html>

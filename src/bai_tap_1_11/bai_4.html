@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Split array</title>
+</head>
+<body>
+<script>
+    let arrayNumber = [1,2,4,8,4,6];
+    let array1 = [];
+    let array2 = [];
+    for (let i = 0; i < arrayNumber.length; i++){
+        if (i < arrayNumber.length/2){
+            array1.push(arrayNumber[i]);
+        } else {
+            array2.push(arrayNumber[i]);
+        }
+    }
+    document.write("Mảng ban đầu là: " + arrayNumber.join(", ") + "<br>");
+    document.write("Mảng thứ nhất là: " + array1.join(", ") + "<br>");
+    document.write("Mảng thứ hai là: " + array2.join(", ") + "<br>");
+</script>
+</body>
+</html>

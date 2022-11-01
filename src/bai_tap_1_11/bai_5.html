@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Classify</title>
+</head>
+<body>
+<script>
+    let n = +prompt("Nhập vào độ dài mảng: ");
+    let arrayNumber = [];
+    while (arrayNumber.length <= n){
+        arrayNumber.push(+prompt("Nhập số mới vào mảng!"));
+    }
+    let arrayEven = [];
+    let arrayOdd = [];
+     function classify() {
+        for (let i = 0; i < arrayNumber.length; i++){
+            if (arrayNumber[i] % 2 === 0){
+                   arrayEven.push(arrayNumber[i]);
+            } else {
+                arrayOdd.push(arrayNumber[i]);
+            }
+        }
+    }
+   classify();
+     document.write("Mảng ban đầu là: " + arrayNumber.join(", ") + "<br>");
+     document.write("Mảng số chẵn là: " + arrayEven.join(", ")  + "<br>");
+     document.write("Mảng số lẻ là: " + arrayOdd.join(", ")  + "<br>");
+</script>
+</body>
+</html>

@@ -7,14 +7,20 @@
 <body>
 <script>
     let str = prompt("Nhap vao mot chuoi ki tu");
-    function acronym(str) {
-        for (let i = 0; i < str.length; i++){
-            if (str[i] === "&nbsp&nbsp"){
-                console.log("true");
+    let arrString = str.split(" ");
+    function acronym(arrString) {
+        if (arrString.length >= 2){
+            for (let i = 0; i < arrString.length; i++){
+                if (arrString[i] !== ""){
+                    arrString[i] = arrString[i][0].toUpperCase();
+                }
             }
+            document.write("cụm từ viết tắt là: " + arrString.join(""));
+        } else {
+            document.write("Chuỗi chỉ có 1 từ nên không cần viết tắt");
         }
     }
-    acronym(str);
+    acronym(arrString);
 </script>
 </body>
 </html>

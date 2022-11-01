@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input And Classify Array</title>
+</head>
+<body>
+<script>
+    let n = +prompt("Nhập vào độ dài mảng");
+    let arrayNew = [];
+    while (arrayNew.length < n){
+        let a = +prompt("Nhập n vào phần tử mới (n > 0)");
+        if (a > 0){
+            arrayNew.push(a);
+        } else {
+            alert("Số nhập vào không thõa mãn điều kiện, mời nhập lại!")
+        }
+    }
+    let countEven = 0, countOdd = 0;
+    function classify() {
+       for (let i = 0; i < arrayNew.length; i++){
+           if (arrayNew[i] % 2 === 0){
+               countEven++;
+           } else {
+               countOdd++;
+           }
+       }
+    }
+    classify();
+    document.write("Số lượng số nguyên chẵn là: " + countEven + "<br>");
+    document.write("Số lượng số nguyên lẻ là: " + countOdd);
+</script>
+</body>
+</html>
