@@ -6,12 +6,12 @@
 </head>
 <body>
 <script>
-    // let n = +prompt("Nhập vào số phần tử của mảng");
-    let arrayInteger = [-2,-4];
+    let n = +prompt("Nhập vào số phần tử của mảng");
+    let arrayInteger = [];
     let i, j;
-    // for ( i = 0; i < n; i++){
-    //     arrayInteger.push(+prompt("Thêm số nguyên mới vào mảng!"));
-    // }
+    for ( i = 0; i < n; i++){
+        arrayInteger.push(+prompt("Thêm số nguyên mới vào mảng!"));
+    }
     function average() {
         let sum = 0;
         let count = 0;
@@ -90,14 +90,18 @@
     }
 
     function deleteNegativeNumber(array) {
+        let arrayCopy = [];
         for (i = 0; i < array.length; i++){
-            if (array[i] < 0){
-                array.splice(i,1);
+            arrayCopy.push(array[i]);
+        }
+        for (i = 0; i < arrayCopy.length; i++){
+            if (arrayCopy[i] < 0){
+                arrayCopy.splice(i,1);
+                i--;
             }
         }
-        return array.join(", ");
+        return arrayCopy.join(", ");
     }
-
     function sortAscending(array) {
         for (i = 0; i < array.length; i++){
             for (j = 0; j < array.length; j++){
